@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Schallus\\source\\repos\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj": {}
+    "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-17-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Schallus\\source\\repos\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj": {
+    "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-17-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Schallus\\source\\repos\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
+        "projectUniqueName": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-17-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
         "projectName": "CommerceBankApp",
-        "projectPath": "C:\\Users\\Schallus\\source\\repos\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
-        "packagesPath": "C:\\Users\\Schallus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Schallus\\source\\repos\\CommerceBankApp\\CommerceBankApp\\obj\\",
+        "projectPath": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-17-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
+        "packagesPath": "C:\\Users\\anf39\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-17-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Schallus\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anf39\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -85,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
