@@ -9,10 +9,38 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body {
+    margin-bottom: 60px;
+    font-family: 'Open Sans', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+header {
+    background-color: #4FA800;
+    color: linen;
+    font-family: 'Poppins', sans-serif;
 }
 
-body {
-  margin-bottom: 60px;
+footer {
+    background-color: #4FA800;
+    color: linen;
+}
+
+.header-shadow {
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+a:hover {
+    color: darkgray;
+}
+
+a:visited {
+    color: #E30000;
+}
+
+a:active {
+    color: #007AA3;
 }
