@@ -2,15 +2,18 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CommerceBankApp.Data;
 using CommerceBankApp.Areas.Identity.Data;
+using CommerceBankApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AuthDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AuthDbContextConnection' not found.");
 
-builder.Services.AddDbContext<AuthDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<AuthDbContext>();
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddTransient<IDataService, DataService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
