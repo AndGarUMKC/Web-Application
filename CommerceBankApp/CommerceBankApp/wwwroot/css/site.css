@@ -1,46 +1,104 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+}
+
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nax-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 html {
     position: relative;
     min-height: 100%;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
     margin-bottom: 60px;
     font-family: 'Open Sans', sans-serif;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 header {
     background-color: #4FA800;
-    color: linen;
     font-family: 'Poppins', sans-serif;
 }
 
 footer {
     background-color: #4FA800;
-    color: linen;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
 }
 
 .header-shadow {
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
 }
 
-a:hover {
-    color: darkgray;
+div.login-logout-tab div.card-header {
+    padding: 0px 0px 12px 0px;
 }
 
-a:visited {
-    color: #E30000;
+div.login-logout-tab ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
 }
 
-a:active {
-    color: #007AA3;
+div.login-logout-tab li.nav-item {
+    width: 50%;
 }
+
+div.login-logout-tab a.nav-link {
+    font-size: 25px;
+    color: #495057;
+    text-align: center;
+}
+
+div.card-content {
+    padding: 10px 20px;
+}
+
+div.login-form-icon {
+    text-align: center;
+}
+ 
