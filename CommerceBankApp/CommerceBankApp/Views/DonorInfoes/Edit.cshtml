@@ -1,0 +1,59 @@
+﻿@model CommerceBankApp.Models.DonorInfo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DonorInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="donorInfoID" />
+            <div class="form-group">
+                <label asp-for="cardNumber" class="control-label"></label>
+                <input asp-for="cardNumber" class="form-control" />
+                <span asp-validation-for="cardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cardExpiration" class="control-label"></label>
+                <input asp-for="cardExpiration" class="form-control" />
+                <span asp-validation-for="cardExpiration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cvcNumber" class="control-label"></label>
+                <input asp-for="cvcNumber" class="form-control" />
+                <span asp-validation-for="cvcNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bankRoutingNumber" class="control-label"></label>
+                <input asp-for="bankRoutingNumber" class="form-control" />
+                <span asp-validation-for="bankRoutingNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bankAccountNumber" class="control-label"></label>
+                <input asp-for="bankAccountNumber" class="form-control" />
+                <span asp-validation-for="bankAccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="donorID" class="control-label"></label>
+                <select asp-for="donorID" class="form-control" asp-items="ViewBag.donorID"></select>
+                <span asp-validation-for="donorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
