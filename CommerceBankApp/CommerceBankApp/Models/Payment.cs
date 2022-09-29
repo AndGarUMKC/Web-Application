@@ -1,19 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using CommerceBankApp.Areas.Identity.Data;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CommerceBankApp.Models
 {
     public class Payment
     {
         public int paymentID { get; set; }
+
+        [Required(ErrorMessage = "Please enter an amount to donate")]
+        [DisplayName("Payment Amount")]
         public float donatedAmount { get; set; }
 
-        [ForeignKey("Donor")]
-        public int donorID { get; set; }
-        public virtual Donor Donor { get; set; }
+        // FOREIGN KEYS
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [ForeignKey("Organization")]
-        public int organizationID { get; set; }
         public virtual Organization Organization { get; set; }
+        
+        public virtual PaymentInfo PaymentInfo { get; set; }
+
         public Payment()
         {
 

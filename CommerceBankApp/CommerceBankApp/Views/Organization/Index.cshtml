@@ -1,0 +1,73 @@
+﻿@model IEnumerable<CommerceBankApp.Models.Organization>
+
+@{
+    ViewData["Title"] = "Fundraisers";
+}
+<br />
+
+<h1>@ViewData["Title"]</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="card-deck">
+	@foreach (var item in Model) 
+	{
+		<div class="card">
+			<img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="Card image cap">   <!-- GATHER IMAGE URL WHEN CREATING NEW FUNDRAISER -->
+			<div class="card-body">
+				<h5 class="card-title">@Html.DisplayFor(modelItem => item.organizationName)</h5>
+				<p class="card-text">@Html.DisplayFor(modelItem => item.organizationDescription)</p>
+				<p class="card-text"><small class="text-muted">$ @Html.DisplayFor(modelItem => item.Payment.Sum(x => x.donatedAmount)) / $ @Html.DisplayFor(modelItem => item.donationGoal)</small></p>
+			</div>
+		</div>
+	}
+</div>
+
+@*
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.organizationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.donationGoal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.organizationDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.organizationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donationGoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.organizationDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.organizationID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.organizationID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.organizationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
