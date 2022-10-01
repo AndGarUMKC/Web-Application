@@ -113,6 +113,7 @@ namespace CommerceBankApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("organizationID"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageUrl")
@@ -348,7 +349,9 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Organization")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ApplicationUser");
                 });

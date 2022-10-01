@@ -29,7 +29,9 @@ namespace CommerceBankApp.Models
         public string ImageUrl { get; set; }
 
         // FOREIGN KEYS
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; } // MUST USE QUESTION MARK FOR APPLICATION USER REFERENCE
 
         public virtual ICollection<DonationType>? DonationType { get; set; }
 

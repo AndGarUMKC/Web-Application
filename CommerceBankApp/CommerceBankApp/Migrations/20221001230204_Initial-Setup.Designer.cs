@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220929195746_Initial-Setup")]
+    [Migration("20221001230204_Initial-Setup")]
     partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -115,6 +115,7 @@ namespace CommerceBankApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("organizationID"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ImageUrl")
@@ -350,7 +351,9 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Organization")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ApplicationUser");
                 });

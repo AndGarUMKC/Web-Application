@@ -22,7 +22,8 @@ namespace CommerceBankApp.Controllers
         // GET: Organization
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Organization.ToListAsync());
+            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Organization/Details/5
@@ -34,6 +35,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var organization = await _context.Organization
+                .Include(o => o.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.organizationID == id);
             if (organization == null)
             {
@@ -46,6 +48,7 @@ namespace CommerceBankApp.Controllers
         // GET: Organization/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl")] Organization organization)
+        public async Task<IActionResult> Create([Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,12 @@ namespace CommerceBankApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
+            string errors = string.Join("; ", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage));
+
+
+            ModelState.AddModelError("", errors);
+
             return View(organization);
         }
 
@@ -78,6 +87,7 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
             return View(organization);
         }
 
@@ -86,7 +96,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl")] Organization organization)
+        public async Task<IActionResult> Edit(int id, [Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
         {
             if (id != organization.organizationID)
             {
@@ -113,6 +123,7 @@ namespace CommerceBankApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
             return View(organization);
         }
 
@@ -125,6 +136,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var organization = await _context.Organization
+                .Include(o => o.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.organizationID == id);
             if (organization == null)
             {

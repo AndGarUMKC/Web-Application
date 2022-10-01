@@ -192,7 +192,7 @@ namespace CommerceBankApp.Migrations
                     donationGoal = table.Column<float>(type: "real", nullable: false),
                     organizationDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,7 +201,32 @@ namespace CommerceBankApp.Migrations
                         name: "FK_Organization_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DonationTypeOrganization",
+                columns: table => new
+                {
+                    donationTypeID = table.Column<int>(type: "int", nullable: false),
+                    organizationID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DonationTypeOrganization", x => new { x.donationTypeID, x.organizationID });
+                    table.ForeignKey(
+                        name: "FK_DonationTypeOrganization_DonationType_donationTypeID",
+                        column: x => x.donationTypeID,
+                        principalTable: "DonationType",
+                        principalColumn: "donationTypeID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DonationTypeOrganization_Organization_organizationID",
+                        column: x => x.organizationID,
+                        principalTable: "Organization",
+                        principalColumn: "organizationID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -318,6 +343,9 @@ namespace CommerceBankApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "DonationTypeOrganization");
 
             migrationBuilder.DropTable(
                 name: "Payment");
