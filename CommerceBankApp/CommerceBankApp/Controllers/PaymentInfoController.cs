@@ -22,7 +22,8 @@ namespace CommerceBankApp.Controllers
         // GET: PaymentInfo
         public async Task<IActionResult> Index()
         {
-              return View(await _context.PaymentInfo.ToListAsync());
+            var applicationDbContext = _context.PaymentInfo.Include(p => p.ApplicationUser);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: PaymentInfo/Details/5
@@ -34,6 +35,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var paymentInfo = await _context.PaymentInfo
+                .Include(p => p.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (paymentInfo == null)
             {
@@ -46,6 +48,7 @@ namespace CommerceBankApp.Controllers
         // GET: PaymentInfo/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,cardNumber,cvcNumber,cardExpiration")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Create([Bind("Id,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace CommerceBankApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
             return View(paymentInfo);
         }
 
@@ -78,6 +82,7 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
             return View(paymentInfo);
         }
 
@@ -86,7 +91,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,cardNumber,cvcNumber,cardExpiration")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (id != paymentInfo.Id)
             {
@@ -113,6 +118,7 @@ namespace CommerceBankApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
             return View(paymentInfo);
         }
 
@@ -125,6 +131,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var paymentInfo = await _context.PaymentInfo
+                .Include(p => p.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (paymentInfo == null)
             {

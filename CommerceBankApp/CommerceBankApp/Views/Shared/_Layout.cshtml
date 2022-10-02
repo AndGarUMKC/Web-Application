@@ -35,14 +35,14 @@
                             <a class="nav-link" asp-area="" asp-controller="Organization" asp-action="Index">Organizations</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Payment" asp-action="Index">Payments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="PaymentInfo" asp-action="Index">PaymentInfo</a>
+                        </li>
+                        <li class="nav-item">
                             <partial name="~/Views/Organization/ShowSearchForm.cshtml" asp-for="Organization" />
                         </li>
-                        @*
-                        <li class="nav-item">
-                            @Html.RenderPartialAsync("ShowSearchForm", "Organization")
-                            @Html.ActionLink("Search", "ShowSearchForm", "Organization")
-                        </li>
-                        *@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

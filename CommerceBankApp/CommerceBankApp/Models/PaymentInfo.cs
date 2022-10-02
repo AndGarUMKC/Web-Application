@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using CommerceBankApp.Areas.Identity.Data;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,15 +11,11 @@ namespace CommerceBankApp.Models
 
         [DisplayName("Card Number")]
         [Required(ErrorMessage = "Please enter the credit card number")]
-        [MinLength(16)]
-        [MaxLength(16)]
         [CreditCard]
-        public int cardNumber { get; set; }
+        public string cardNumber { get; set; }
 
         [DisplayName("CVC Number")]
         [Required(ErrorMessage = "Please enter the CVC number")]
-        [MinLength(3)]
-        [MaxLength(3)]
         public int cvcNumber { get; set; }
 
         [DisplayName("Expiration Date")]
@@ -27,7 +24,11 @@ namespace CommerceBankApp.Models
         public DateTime cardExpiration { get; set; }
 
         // FOREIGN KEYS
-        public virtual ICollection<Payment> Payment { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; }
+
+        public virtual ICollection<Payment>? Payment { get; set; }
 
         public PaymentInfo ()
         {

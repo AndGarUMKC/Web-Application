@@ -62,21 +62,6 @@ namespace CommerceBankApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaymentInfo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    cardNumber = table.Column<int>(type: "int", maxLength: 16, nullable: false),
-                    cvcNumber = table.Column<int>(type: "int", maxLength: 3, nullable: false),
-                    cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PaymentInfo", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -202,7 +187,29 @@ namespace CommerceBankApp.Migrations
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentInfo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    cardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cvcNumber = table.Column<int>(type: "int", nullable: false),
+                    cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentInfo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaymentInfo_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,7 +267,7 @@ namespace CommerceBankApp.Migrations
                         column: x => x.PaymentInfoId,
                         principalTable: "PaymentInfo",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -326,6 +333,11 @@ namespace CommerceBankApp.Migrations
                 name: "IX_Payment_PaymentInfoId",
                 table: "Payment",
                 column: "PaymentInfoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentInfo_ApplicationUserId",
+                table: "PaymentInfo",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

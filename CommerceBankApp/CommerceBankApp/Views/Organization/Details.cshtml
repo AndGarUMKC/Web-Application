@@ -43,6 +43,11 @@
     </dl>
 </div>
 <div>
+    <form action="/Payment/Create">
+        <input type="submit" value="Donate" class="btn btn-primary" />
+    </form>
+
     <a asp-action="Edit" asp-route-id="@Model?.OrganizationID">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>

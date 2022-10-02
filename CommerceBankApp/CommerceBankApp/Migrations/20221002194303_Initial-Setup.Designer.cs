@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221002025213_Initial-Setup")]
+    [Migration("20221002194303_Initial-Setup")]
     partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -180,18 +180,23 @@ namespace CommerceBankApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("cardExpiration")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("cardNumber")
-                        .HasMaxLength(16)
-                        .HasColumnType("int");
+                    b.Property<string>("cardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("cvcNumber")
-                        .HasMaxLength(3)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("PaymentInfo");
                 });
@@ -384,6 +389,17 @@ namespace CommerceBankApp.Migrations
                     b.Navigation("Organization");
 
                     b.Navigation("PaymentInfo");
+                });
+
+            modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo", b =>
+                {
+                    b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("DonationTypeOrganization", b =>
