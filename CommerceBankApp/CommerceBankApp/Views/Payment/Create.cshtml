@@ -13,9 +13,21 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="donatedAmount" class="control-label"></label>
-                <input asp-for="donatedAmount" class="form-control" />
-                <span asp-validation-for="donatedAmount" class="text-danger"></span>
+                <label asp-for="DonatedAmount" class="control-label"></label>
+                <input asp-for="DonatedAmount" class="form-control" />
+                <span asp-validation-for="DonatedAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUserId" class="control-label"></label>
+                <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrganizationId" class="control-label"></label>
+                <select asp-for="OrganizationId" class ="form-control" asp-items="ViewBag.OrganizationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentInfoId" class="control-label"></label>
+                <select asp-for="PaymentInfoId" class ="form-control" asp-items="ViewBag.PaymentInfoId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -22,7 +22,8 @@ namespace CommerceBankApp.Controllers
         // GET: Payment
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Payment.ToListAsync());
+            var applicationDbContext = _context.Payment.Include(p => p.ApplicationUser).Include(p => p.Organization).Include(p => p.PaymentInfo);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Payment/Details/5
@@ -34,7 +35,10 @@ namespace CommerceBankApp.Controllers
             }
 
             var payment = await _context.Payment
-                .FirstOrDefaultAsync(m => m.paymentID == id);
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Organization)
+                .Include(p => p.PaymentInfo)
+                .FirstOrDefaultAsync(m => m.PaymentID == id);
             if (payment == null)
             {
                 return NotFound();
@@ -46,6 +50,9 @@ namespace CommerceBankApp.Controllers
         // GET: Payment/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["OrganizationId"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "Id", "Id");
             return View();
         }
 
@@ -54,7 +61,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("paymentID,donatedAmount")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentID,DonatedAmount,ApplicationUserId,OrganizationId,PaymentInfoId")] Payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +69,9 @@ namespace CommerceBankApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
+            ViewData["OrganizationId"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "Id", "Id", payment.PaymentInfoId);
             return View(payment);
         }
 
@@ -78,6 +88,9 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
+            ViewData["OrganizationId"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "Id", "Id", payment.PaymentInfoId);
             return View(payment);
         }
 
@@ -86,9 +99,9 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("paymentID,donatedAmount")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentID,DonatedAmount,ApplicationUserId,OrganizationId,PaymentInfoId")] Payment payment)
         {
-            if (id != payment.paymentID)
+            if (id != payment.PaymentID)
             {
                 return NotFound();
             }
@@ -102,7 +115,7 @@ namespace CommerceBankApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PaymentExists(payment.paymentID))
+                    if (!PaymentExists(payment.PaymentID))
                     {
                         return NotFound();
                     }
@@ -113,6 +126,9 @@ namespace CommerceBankApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
+            ViewData["OrganizationId"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "Id", "Id", payment.PaymentInfoId);
             return View(payment);
         }
 
@@ -125,7 +141,10 @@ namespace CommerceBankApp.Controllers
             }
 
             var payment = await _context.Payment
-                .FirstOrDefaultAsync(m => m.paymentID == id);
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Organization)
+                .Include(p => p.PaymentInfo)
+                .FirstOrDefaultAsync(m => m.PaymentID == id);
             if (payment == null)
             {
                 return NotFound();
@@ -155,7 +174,7 @@ namespace CommerceBankApp.Controllers
 
         private bool PaymentExists(int id)
         {
-          return _context.Payment.Any(e => e.paymentID == id);
+          return _context.Payment.Any(e => e.PaymentID == id);
         }
     }
 }

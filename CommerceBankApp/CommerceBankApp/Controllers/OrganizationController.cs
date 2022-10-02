@@ -36,7 +36,7 @@ namespace CommerceBankApp.Controllers
 
             var organization = await _context.Organization
                 .Include(o => o.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.organizationID == id);
+                .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
+        public async Task<IActionResult> Create([Bind("OrganizationID,OrganizationName,DonationGoal,OrganizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
         {
             if (ModelState.IsValid)
             {
@@ -66,11 +66,6 @@ namespace CommerceBankApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
-            string errors = string.Join("; ", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage));
-
-
-            ModelState.AddModelError("", errors);
-
             return View(organization);
         }
 
@@ -96,9 +91,9 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("organizationID,organizationName,donationGoal,organizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
+        public async Task<IActionResult> Edit(int id, [Bind("OrganizationID,OrganizationName,DonationGoal,OrganizationDescription,ImageUrl,ApplicationUserId")] Organization organization)
         {
-            if (id != organization.organizationID)
+            if (id != organization.OrganizationID)
             {
                 return NotFound();
             }
@@ -112,7 +107,7 @@ namespace CommerceBankApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrganizationExists(organization.organizationID))
+                    if (!OrganizationExists(organization.OrganizationID))
                     {
                         return NotFound();
                     }
@@ -137,7 +132,7 @@ namespace CommerceBankApp.Controllers
 
             var organization = await _context.Organization
                 .Include(o => o.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.organizationID == id);
+                .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {
                 return NotFound();
@@ -167,7 +162,7 @@ namespace CommerceBankApp.Controllers
 
         private bool OrganizationExists(int id)
         {
-          return _context.Organization.Any(e => e.organizationID == id);
+          return _context.Organization.Any(e => e.OrganizationID == id);
         }
     }
 }

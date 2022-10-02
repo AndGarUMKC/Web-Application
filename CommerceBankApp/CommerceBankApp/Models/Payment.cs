@@ -7,18 +7,25 @@ namespace CommerceBankApp.Models
 {
     public class Payment
     {
-        public int paymentID { get; set; }
+        public int PaymentID { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please enter an amount to donate")]
         [DisplayName("Payment Amount")]
-        public float donatedAmount { get; set; }
+        public float DonatedAmount { get; set; }
 
         // FOREIGN KEYS
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public string ApplicationUserId { get; set; }
+        public virtual ApplicationUser? ApplicationUser { get; set; }
 
-        public virtual Organization Organization { get; set; }
-        
-        public virtual PaymentInfo PaymentInfo { get; set; }
+        [ForeignKey("OrganizationId")]
+        public int OrganizationId { get; set; }
+        public virtual Organization? Organization { get; set; }
+
+        [ForeignKey("PaymentInfoId")]
+        public int PaymentInfoId { get; set; }
+        public virtual PaymentInfo? PaymentInfo { get; set; }
 
         public Payment()
         {

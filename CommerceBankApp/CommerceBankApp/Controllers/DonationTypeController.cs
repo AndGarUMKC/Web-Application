@@ -34,7 +34,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var donationType = await _context.DonationType
-                .FirstOrDefaultAsync(m => m.donationTypeID == id);
+                .FirstOrDefaultAsync(m => m.DonationTypeID == id);
             if (donationType == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("donationTypeID,donationTypeName")] DonationType donationType)
+        public async Task<IActionResult> Create([Bind("DonationTypeID,DonationTypeName")] DonationType donationType)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("donationTypeID,donationTypeName")] DonationType donationType)
+        public async Task<IActionResult> Edit(int id, [Bind("DonationTypeID,DonationTypeName")] DonationType donationType)
         {
-            if (id != donationType.donationTypeID)
+            if (id != donationType.DonationTypeID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace CommerceBankApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DonationTypeExists(donationType.donationTypeID))
+                    if (!DonationTypeExists(donationType.DonationTypeID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace CommerceBankApp.Controllers
             }
 
             var donationType = await _context.DonationType
-                .FirstOrDefaultAsync(m => m.donationTypeID == id);
+                .FirstOrDefaultAsync(m => m.DonationTypeID == id);
             if (donationType == null)
             {
                 return NotFound();
@@ -155,7 +155,7 @@ namespace CommerceBankApp.Controllers
 
         private bool DonationTypeExists(int id)
         {
-          return _context.DonationType.Any(e => e.donationTypeID == id);
+          return _context.DonationType.Any(e => e.DonationTypeID == id);
         }
     }
 }

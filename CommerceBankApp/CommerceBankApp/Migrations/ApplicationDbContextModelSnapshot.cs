@@ -89,49 +89,49 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("CommerceBankApp.Models.DonationType", b =>
                 {
-                    b.Property<int>("donationTypeID")
+                    b.Property<int>("DonationTypeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("donationTypeID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DonationTypeID"), 1L, 1);
 
-                    b.Property<string>("donationTypeName")
+                    b.Property<string>("DonationTypeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("donationTypeID");
+                    b.HasKey("DonationTypeID");
 
                     b.ToTable("DonationType");
                 });
 
             modelBuilder.Entity("CommerceBankApp.Models.Organization", b =>
                 {
-                    b.Property<int>("organizationID")
+                    b.Property<int>("OrganizationID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("organizationID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrganizationID"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<float>("DonationGoal")
+                        .HasColumnType("real");
+
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("donationGoal")
-                        .HasColumnType("real");
-
-                    b.Property<string>("organizationDescription")
+                    b.Property<string>("OrganizationDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("organizationName")
+                    b.Property<string>("OrganizationName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("organizationID");
+                    b.HasKey("OrganizationID");
 
                     b.HasIndex("ApplicationUserId");
 
@@ -140,31 +140,32 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("CommerceBankApp.Models.Payment", b =>
                 {
-                    b.Property<int>("paymentID")
+                    b.Property<int>("PaymentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("paymentID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentID"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<float>("DonatedAmount")
+                        .HasColumnType("real");
+
+                    b.Property<int>("OrganizationId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PaymentInfoId")
                         .HasColumnType("int");
 
-                    b.Property<float>("donatedAmount")
-                        .HasColumnType("real");
-
-                    b.Property<int>("organizationID")
-                        .HasColumnType("int");
-
-                    b.HasKey("paymentID");
+                    b.HasKey("PaymentID");
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("PaymentInfoId");
+                    b.HasIndex("OrganizationId");
 
-                    b.HasIndex("organizationID");
+                    b.HasIndex("PaymentInfoId");
 
                     b.ToTable("Payment");
                 });
@@ -195,15 +196,15 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("DonationTypeOrganization", b =>
                 {
-                    b.Property<int>("donationTypeID")
+                    b.Property<int>("DonationTypeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("organizationID")
+                    b.Property<int>("OrganizationID")
                         .HasColumnType("int");
 
-                    b.HasKey("donationTypeID", "organizationID");
+                    b.HasKey("DonationTypeID", "OrganizationID");
 
-                    b.HasIndex("organizationID");
+                    b.HasIndex("OrganizationID");
 
                     b.ToTable("DonationTypeOrganization");
                 });
@@ -360,17 +361,19 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Payment")
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("CommerceBankApp.Models.PaymentInfo", "PaymentInfo")
-                        .WithMany("Payment")
-                        .HasForeignKey("PaymentInfoId")
+                        .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CommerceBankApp.Models.Organization", "Organization")
                         .WithMany("Payment")
-                        .HasForeignKey("organizationID")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CommerceBankApp.Models.PaymentInfo", "PaymentInfo")
+                        .WithMany("Payment")
+                        .HasForeignKey("PaymentInfoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -385,13 +388,13 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Models.DonationType", null)
                         .WithMany()
-                        .HasForeignKey("donationTypeID")
+                        .HasForeignKey("DonationTypeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CommerceBankApp.Models.Organization", null)
                         .WithMany()
-                        .HasForeignKey("organizationID")
+                        .HasForeignKey("OrganizationID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -9,19 +9,20 @@ namespace CommerceBankApp.Models
 {
     public class Organization
     {
-        public int organizationID { get; set; }
+        public int OrganizationID { get; set; }
 
         [Required(ErrorMessage = "Please enter the name of the fundraiser")]
         [DisplayName("Name of Fundraiser")]
-        public string organizationName { get; set; }
+        public string OrganizationName { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please enter the donation goal to reach")]
         [DisplayName("Goal Amount")]
-        public float donationGoal { get; set; }
+        public float DonationGoal { get; set; }
 
         [Required(ErrorMessage = "Please enter the description of the fundraiser")]
         [DisplayName("Description")]
-        public string organizationDescription { get; set; }
+        public string OrganizationDescription { get; set; }
 
         [Url]
         [DisplayName("URL of Image")]

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CommerceBankApp.Models
 {
@@ -11,6 +12,7 @@ namespace CommerceBankApp.Models
         [Required(ErrorMessage = "Please enter the credit card number")]
         [MinLength(16)]
         [MaxLength(16)]
+        [CreditCard]
         public int cardNumber { get; set; }
 
         [DisplayName("CVC Number")]
