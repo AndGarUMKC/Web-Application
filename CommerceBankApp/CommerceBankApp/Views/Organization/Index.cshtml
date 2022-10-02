@@ -11,27 +11,25 @@
     <input type="submit" value="Create New" class="btn btn-primary" />
 </form>
 <br />
-<div class="card-group">
+<div class="row row-cols-1 row-cols-md-3 g-4">
     @foreach (var item in Model)
     {
-
         <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;">
-            <div class="card">
-                <img class="card-img-top" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap" style="width: 525px; height:275px;">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
-                    <p class="card-text"><small class="text-muted">$ / @Html.DisplayTextFor(modelItem => item.DonationGoal)</small></p>
+            <div class="col">
+                <div class="card h-100" style="background-color:#eee;">
+                    <img class="card-img-top" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
+                        <p class="card-text"><small class="text-muted">$ / @Html.DisplayFor(modelItem => item.DonationGoal)</small></p>
+                    </div>
                 </div>
             </div>
         </a>
-
     }
 </div>
 
-
 @*
-
 @model IEnumerable<CommerceBankApp.Models.Organization>
 
 @{
