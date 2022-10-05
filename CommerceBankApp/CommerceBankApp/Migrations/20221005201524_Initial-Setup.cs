@@ -52,28 +52,13 @@ namespace CommerceBankApp.Migrations
                 name: "DonationType",
                 columns: table => new
                 {
-                    donationTypeID = table.Column<int>(type: "int", nullable: false)
+                    DonationTypeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    donationTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DonationTypeName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DonationType", x => x.donationTypeID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PaymentInfo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    cardNumber = table.Column<int>(type: "int", maxLength: 16, nullable: false),
-                    cvcNumber = table.Column<int>(type: "int", maxLength: 3, nullable: false),
-                    cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PaymentInfo", x => x.Id);
+                    table.PrimaryKey("PK_DonationType", x => x.DonationTypeID);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,46 +171,68 @@ namespace CommerceBankApp.Migrations
                 name: "Organization",
                 columns: table => new
                 {
-                    organizationID = table.Column<int>(type: "int", nullable: false)
+                    OrganizationID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    organizationName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    donationGoal = table.Column<float>(type: "real", nullable: false),
-                    organizationDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrganizationName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DonationGoal = table.Column<float>(type: "real", nullable: false),
+                    OrganizationDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Organization", x => x.organizationID);
+                    table.PrimaryKey("PK_Organization", x => x.OrganizationID);
                     table.ForeignKey(
                         name: "FK_Organization_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentInfo",
+                columns: table => new
+                {
+                    PaymentInfoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    cardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cvcNumber = table.Column<int>(type: "int", nullable: false),
+                    cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentInfo", x => x.PaymentInfoId);
+                    table.ForeignKey(
+                        name: "FK_PaymentInfo_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
                 name: "DonationTypeOrganization",
                 columns: table => new
                 {
-                    donationTypeID = table.Column<int>(type: "int", nullable: false),
-                    organizationID = table.Column<int>(type: "int", nullable: false)
+                    DonationTypeID = table.Column<int>(type: "int", nullable: false),
+                    OrganizationID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DonationTypeOrganization", x => new { x.donationTypeID, x.organizationID });
+                    table.PrimaryKey("PK_DonationTypeOrganization", x => new { x.DonationTypeID, x.OrganizationID });
                     table.ForeignKey(
-                        name: "FK_DonationTypeOrganization_DonationType_donationTypeID",
-                        column: x => x.donationTypeID,
+                        name: "FK_DonationTypeOrganization_DonationType_DonationTypeID",
+                        column: x => x.DonationTypeID,
                         principalTable: "DonationType",
-                        principalColumn: "donationTypeID",
+                        principalColumn: "DonationTypeID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DonationTypeOrganization_Organization_organizationID",
-                        column: x => x.organizationID,
+                        name: "FK_DonationTypeOrganization_Organization_OrganizationID",
+                        column: x => x.OrganizationID,
                         principalTable: "Organization",
-                        principalColumn: "organizationID",
+                        principalColumn: "OrganizationID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -233,33 +240,35 @@ namespace CommerceBankApp.Migrations
                 name: "Payment",
                 columns: table => new
                 {
-                    paymentID = table.Column<int>(type: "int", nullable: false)
+                    PaymentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    donatedAmount = table.Column<float>(type: "real", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    organizationID = table.Column<int>(type: "int", nullable: false),
+                    DonatedAmount = table.Column<float>(type: "real", nullable: false),
+                    DonatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    OrganizationID = table.Column<int>(type: "int", nullable: false),
                     PaymentInfoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Payment", x => x.paymentID);
+                    table.PrimaryKey("PK_Payment", x => x.PaymentId);
                     table.ForeignKey(
                         name: "FK_Payment_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Payment_Organization_organizationID",
-                        column: x => x.organizationID,
+                        name: "FK_Payment_Organization_OrganizationID",
+                        column: x => x.OrganizationID,
                         principalTable: "Organization",
-                        principalColumn: "organizationID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "OrganizationID",
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Payment_PaymentInfo_PaymentInfoId",
                         column: x => x.PaymentInfoId,
                         principalTable: "PaymentInfo",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PaymentInfoId",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -302,9 +311,9 @@ namespace CommerceBankApp.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DonationTypeOrganization_organizationID",
+                name: "IX_DonationTypeOrganization_OrganizationID",
                 table: "DonationTypeOrganization",
-                column: "organizationID");
+                column: "OrganizationID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Organization_ApplicationUserId",
@@ -317,14 +326,19 @@ namespace CommerceBankApp.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Payment_organizationID",
+                name: "IX_Payment_OrganizationID",
                 table: "Payment",
-                column: "organizationID");
+                column: "OrganizationID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payment_PaymentInfoId",
                 table: "Payment",
                 column: "PaymentInfoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentInfo_ApplicationUserId",
+                table: "PaymentInfo",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

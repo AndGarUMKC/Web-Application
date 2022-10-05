@@ -11,22 +11,22 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.organizationName)
+            @Html.DisplayNameFor(model => model.OrganizationName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.organizationName)
+            @Html.DisplayFor(model => model.OrganizationName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.donationGoal)
+            @Html.DisplayNameFor(model => model.DonationGoal)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.donationGoal)
+            @Html.DisplayFor(model => model.DonationGoal)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.organizationDescription)
+            @Html.DisplayNameFor(model => model.OrganizationDescription)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.organizationDescription)
+            @Html.DisplayFor(model => model.OrganizationDescription)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ImageUrl)
@@ -43,6 +43,33 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.organizationID">Edit</a> |
+    <form action="/Payment/Create">
+        <input type="submit" value="Donate" class="btn btn-primary" />
+    </form>
+
+    <a asp-action="Edit" asp-route-id="@Model?.OrganizationID">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+        @{
+            if (Model?.Payment != null)
+            {
+                var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
+
+                foreach (var items in reversesort)
+                {
+                    <li class="list-group-item">
+                        @Html.DisplayFor(item => items.DonatedAmount) | 
+                        @Html.DisplayFor(item => items.ApplicationUser.UserName) | 
+                        @Html.DisplayFor(item => items.DonatedDate)
+                    </li>
+                }
+            }
+        }
+        </ul>
+    </div>
 </div>

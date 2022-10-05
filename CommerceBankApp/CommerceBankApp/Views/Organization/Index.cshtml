@@ -1,6 +1,48 @@
 ﻿@model IEnumerable<CommerceBankApp.Models.Organization>
 
 @{
+    ViewData["Title"] = "Fundraisers";
+}
+<br />
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<form action="/Organization/Create">
+    <input type="submit" value="Create New" class="btn btn-primary" />
+</form>
+<br />
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        var sum = 0f;
+        if (item.Payment != null) {
+            sum = item.Payment.Sum(p => p.DonatedAmount);  <!-- WILL THIS RUN ONCE DONATED TO??? -->
+        }
+        
+            <div class="col">
+                <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;">
+                <div class="card h-100" style="background-color:#dddddd;">
+                    <img class="card-img-top" style="height:225px" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
+                        <p class="card-text"><small class="text-muted">
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName) | 
+                            @String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)
+                        </small></p>
+                        
+                    </div>
+                </div>
+            </a>
+            </div>
+        
+    }
+</div>
+
+@*
+@model IEnumerable<CommerceBankApp.Models.Organization>
+
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -13,13 +55,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.organizationName)
+                @Html.DisplayNameFor(model => model.OrganizationName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.donationGoal)
+                @Html.DisplayNameFor(model => model.DonationGoal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.organizationDescription)
+                @Html.DisplayNameFor(model => model.OrganizationDescription)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ImageUrl)
@@ -34,13 +76,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.organizationName)
+                @Html.DisplayFor(modelItem => item.OrganizationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.donationGoal)
+                @Html.DisplayFor(modelItem => item.DonationGoal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.organizationDescription)
+                @Html.DisplayFor(modelItem => item.OrganizationDescription)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImageUrl)
@@ -49,11 +91,12 @@
                 @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.organizationID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.organizationID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.organizationID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.OrganizationID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.OrganizationID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrganizationID">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+*@
