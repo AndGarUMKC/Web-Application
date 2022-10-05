@@ -33,12 +33,12 @@
             @Html.DisplayNameFor(model => model.PaymentInfo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PaymentInfo.Id)
+            @Html.DisplayFor(model => model.PaymentInfo.cardNumber)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="PaymentID" />
+        <input type="hidden" asp-for="PaymentId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

@@ -37,15 +37,15 @@
                 @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Organization.ImageUrl)
+                @Html.DisplayFor(modelItem => item.Organization.OrganizationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PaymentInfo.Id)
+                @Html.DisplayFor(modelItem => item.PaymentInfo.cardNumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PaymentID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PaymentID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PaymentID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PaymentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PaymentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PaymentId">Delete</a>
             </td>
         </tr>
 }

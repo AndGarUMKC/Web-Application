@@ -25,7 +25,11 @@
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
-                        <p class="card-text"><small class="text-muted">@String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)</small></p>
+                        <p class="card-text"><small class="text-muted">
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName) | 
+                            @String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)
+                        </small></p>
+                        
                     </div>
                 </div>
             </div>

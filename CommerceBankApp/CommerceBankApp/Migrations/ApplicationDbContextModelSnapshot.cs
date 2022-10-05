@@ -140,11 +140,11 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("CommerceBankApp.Models.Payment", b =>
                 {
-                    b.Property<int>("PaymentID")
+                    b.Property<int>("PaymentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
@@ -153,17 +153,17 @@ namespace CommerceBankApp.Migrations
                     b.Property<float>("DonatedAmount")
                         .HasColumnType("real");
 
-                    b.Property<int>("OrganizationId")
+                    b.Property<int>("OrganizationID")
                         .HasColumnType("int");
 
                     b.Property<int>("PaymentInfoId")
                         .HasColumnType("int");
 
-                    b.HasKey("PaymentID");
+                    b.HasKey("PaymentId");
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("OrganizationId");
+                    b.HasIndex("OrganizationID");
 
                     b.HasIndex("PaymentInfoId");
 
@@ -172,11 +172,11 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PaymentInfoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentInfoId"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
@@ -192,7 +192,7 @@ namespace CommerceBankApp.Migrations
                     b.Property<int>("cvcNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("PaymentInfoId");
 
                     b.HasIndex("ApplicationUserId");
 
@@ -372,7 +372,7 @@ namespace CommerceBankApp.Migrations
 
                     b.HasOne("CommerceBankApp.Models.Organization", "Organization")
                         .WithMany("Payment")
-                        .HasForeignKey("OrganizationId")
+                        .HasForeignKey("OrganizationID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

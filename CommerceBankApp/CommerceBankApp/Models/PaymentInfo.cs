@@ -7,7 +7,7 @@ namespace CommerceBankApp.Models
 {
     public class PaymentInfo
     {
-        public int Id { get; set; }
+        public int PaymentInfoId { get; set; }
 
         [DisplayName("Card Number")]
         [Required(ErrorMessage = "Please enter the credit card number")]

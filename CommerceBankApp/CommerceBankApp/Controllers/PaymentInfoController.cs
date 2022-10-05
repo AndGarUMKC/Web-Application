@@ -36,7 +36,7 @@ namespace CommerceBankApp.Controllers
 
             var paymentInfo = await _context.PaymentInfo
                 .Include(p => p.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PaymentInfoId == id);
             if (paymentInfo == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Create([Bind("PaymentInfoId,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -91,9 +91,9 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
-            if (id != paymentInfo.Id)
+            if (id != paymentInfo.PaymentInfoId)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace CommerceBankApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PaymentInfoExists(paymentInfo.Id))
+                    if (!PaymentInfoExists(paymentInfo.PaymentInfoId))
                     {
                         return NotFound();
                     }
@@ -132,7 +132,7 @@ namespace CommerceBankApp.Controllers
 
             var paymentInfo = await _context.PaymentInfo
                 .Include(p => p.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.PaymentInfoId == id);
             if (paymentInfo == null)
             {
                 return NotFound();
@@ -162,7 +162,7 @@ namespace CommerceBankApp.Controllers
 
         private bool PaymentInfoExists(int id)
         {
-          return _context.PaymentInfo.Any(e => e.Id == id);
+          return _context.PaymentInfo.Any(e => e.PaymentInfoId == id);
         }
     }
 }

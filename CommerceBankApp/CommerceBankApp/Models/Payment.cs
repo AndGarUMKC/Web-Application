@@ -7,7 +7,7 @@ namespace CommerceBankApp.Models
 {
     public class Payment
     {
-        public int PaymentID { get; set; }
+        public int PaymentId { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please enter an amount to donate")]
@@ -19,8 +19,8 @@ namespace CommerceBankApp.Models
         public string ApplicationUserId { get; set; }
         public virtual ApplicationUser? ApplicationUser { get; set; }
 
-        [ForeignKey("OrganizationId")]
-        public int OrganizationId { get; set; }
+        [ForeignKey("OrganizationID")]
+        public int OrganizationID { get; set; }
         public virtual Organization? Organization { get; set; }
 
         [ForeignKey("PaymentInfoId")]

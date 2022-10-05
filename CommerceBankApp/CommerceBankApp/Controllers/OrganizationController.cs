@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CommerceBankApp.Data;
 using CommerceBankApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using CommerceBankApp.Services;
 
 namespace CommerceBankApp.Controllers
 {
@@ -23,7 +24,7 @@ namespace CommerceBankApp.Controllers
         // GET: Organization
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser);
+            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser).Include(p => p.Payment);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -49,13 +50,13 @@ namespace CommerceBankApp.Controllers
             }
 
             var organization = await _context.Organization
-                .Include(o => o.ApplicationUser)
+                .Include(o => o.ApplicationUser).Include(p => p.Payment)
                 .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {
                 return NotFound();
             }
-
+            
             return View(organization);
         }
 

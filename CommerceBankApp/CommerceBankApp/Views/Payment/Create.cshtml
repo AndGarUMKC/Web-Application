@@ -17,13 +17,13 @@
                 <input asp-for="DonatedAmount" class="form-control" />
                 <span asp-validation-for="DonatedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group" style="display:none">
+            <div class="form-group">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
                 <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
             </div>
-            <div class="form-group" style="display:none">
-                <label asp-for="OrganizationId" class="control-label"></label>
-                <select asp-for="OrganizationId" class ="form-control" asp-items="ViewBag.OrganizationId"></select>
+            <div class="form-group">
+                <label asp-for="OrganizationID" class="control-label"></label>
+                <select asp-for="OrganizationID" class ="form-control" asp-items="ViewBag.OrganizationID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PaymentInfoId" class="control-label"></label>
