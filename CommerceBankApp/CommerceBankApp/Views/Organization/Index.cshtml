@@ -18,10 +18,11 @@
         if (item.Payment != null) {
             sum = item.Payment.Sum(p => p.DonatedAmount);  <!-- WILL THIS RUN ONCE DONATED TO??? -->
         }
-        <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;">
+        
             <div class="col">
+                <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;">
                 <div class="card h-100" style="background-color:#dddddd;">
-                    <img class="card-img-top" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
+                    <img class="card-img-top" style="height:225px" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
@@ -32,8 +33,9 @@
                         
                     </div>
                 </div>
+            </a>
             </div>
-        </a>
+        
     }
 </div>
 

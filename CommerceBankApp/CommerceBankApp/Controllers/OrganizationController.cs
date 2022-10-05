@@ -37,7 +37,7 @@ namespace CommerceBankApp.Controllers
         // POST: Organization/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser);
+            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser).Include(p => p.Payment);
             return View("Index", await applicationDbContext.Where(o => o.OrganizationName.Contains(SearchPhrase)).ToListAsync());
         }
 

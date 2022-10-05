@@ -14,6 +14,9 @@ namespace CommerceBankApp.Models
         [DisplayName("Payment Amount")]
         public float DonatedAmount { get; set; }
 
+        [DataType(DataType.DateTime)]
+        public DateTime DonatedDate { get; set; }
+
         // FOREIGN KEYS
         [ForeignKey("ApplicationUserId")]
         public string ApplicationUserId { get; set; }
@@ -29,7 +32,7 @@ namespace CommerceBankApp.Models
 
         public Payment()
         {
-
+            DonatedDate = DateTime.Now;
         }
     }
 }

@@ -153,6 +153,9 @@ namespace CommerceBankApp.Migrations
                     b.Property<float>("DonatedAmount")
                         .HasColumnType("real");
 
+                    b.Property<DateTime>("DonatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("OrganizationID")
                         .HasColumnType("int");
 

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221004005308_Initial-Setup")]
+    [Migration("20221005201524_Initial-Setup")]
     partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,6 +154,9 @@ namespace CommerceBankApp.Migrations
 
                     b.Property<float>("DonatedAmount")
                         .HasColumnType("real");
+
+                    b.Property<DateTime>("DonatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("OrganizationID")
                         .HasColumnType("int");

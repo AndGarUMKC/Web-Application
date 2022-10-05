@@ -51,7 +51,7 @@ namespace CommerceBankApp.Controllers
         public IActionResult Create()
         {
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName");
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber");
             return View();
         }
@@ -61,7 +61,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,DonatedDate,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace CommerceBankApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName", payment.OrganizationID);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
             return View(payment);
         }
@@ -89,7 +89,7 @@ namespace CommerceBankApp.Controllers
                 return NotFound();
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName", payment.OrganizationID);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
             return View(payment);
         }
@@ -99,7 +99,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,DonatedDate,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
         {
             if (id != payment.PaymentId)
             {
@@ -127,7 +127,7 @@ namespace CommerceBankApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName", payment.OrganizationID);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
             return View(payment);
         }

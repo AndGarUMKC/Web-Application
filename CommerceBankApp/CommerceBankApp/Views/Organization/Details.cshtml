@@ -52,20 +52,24 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-
-
-<ul class="list-group">
-    @{
-        if (Model?.Payment != null)
-        {
-            foreach (var items in Model?.Payment)
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+        @{
+            if (Model?.Payment != null)
             {
-                <li class="list-group-item">
-                    @Html.DisplayFor(item => items.ApplicationUser.UserName) | @Html.DisplayFor(item => items.DonatedAmount)
-                </li>
+                var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
+
+                foreach (var items in reversesort)
+                {
+                    <li class="list-group-item">
+                        @Html.DisplayFor(item => items.DonatedAmount) | 
+                        @Html.DisplayFor(item => items.ApplicationUser.UserName) | 
+                        @Html.DisplayFor(item => items.DonatedDate)
+                    </li>
+                }
             }
         }
-
-    }
-    
-</ul>
+        </ul>
+    </div>
+</div>
