@@ -83,6 +83,13 @@ namespace CommerceBankApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
+
+            string errors = string.Join("; ", ModelState.Values
+                            .SelectMany(x => x.Errors)
+                            .Select(x => x.ErrorMessage));
+
+            ModelState.AddModelError("", errors);
+
             return View(organization);
         }
 

@@ -185,6 +185,10 @@ namespace CommerceBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("PaymentInfoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("cardExpiration")
                         .HasColumnType("datetime2");
 
@@ -192,8 +196,10 @@ namespace CommerceBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cvcNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("cvcNumber")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
 
                     b.HasKey("PaymentInfoId");
 

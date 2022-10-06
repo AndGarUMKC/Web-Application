@@ -196,8 +196,9 @@ namespace CommerceBankApp.Migrations
                 {
                     PaymentInfoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentInfoName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cvcNumber = table.Column<int>(type: "int", nullable: false),
+                    cvcNumber = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
                     cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },

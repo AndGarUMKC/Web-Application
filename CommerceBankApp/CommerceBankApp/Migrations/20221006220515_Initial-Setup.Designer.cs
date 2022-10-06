@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221005201524_Initial-Setup")]
+    [Migration("20221006220515_Initial-Setup")]
     partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -187,6 +187,10 @@ namespace CommerceBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("PaymentInfoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("cardExpiration")
                         .HasColumnType("datetime2");
 
@@ -194,8 +198,10 @@ namespace CommerceBankApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("cvcNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("cvcNumber")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
 
                     b.HasKey("PaymentInfoId");
 

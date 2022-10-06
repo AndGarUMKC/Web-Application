@@ -57,7 +57,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentInfoId,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Create([Bind("PaymentInfoId,PaymentInfoName,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace CommerceBankApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,PaymentInfoName,cardNumber,cvcNumber,cardExpiration,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (id != paymentInfo.PaymentInfoId)
             {

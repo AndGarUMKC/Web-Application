@@ -14,6 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="PaymentInfoId" />
             <div class="form-group">
+                <label asp-for="PaymentInfoName" class="control-label"></label>
+                <input asp-for="PaymentInfoName" class="form-control" />
+                <span asp-validation-for="PaymentInfoName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="cardNumber" class="control-label"></label>
                 <input asp-for="cardNumber" class="form-control" />
                 <span asp-validation-for="cardNumber" class="text-danger"></span>

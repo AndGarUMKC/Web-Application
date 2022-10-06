@@ -27,6 +27,7 @@ namespace CommerceBankApp.Models
         public virtual Organization? Organization { get; set; }
 
         [ForeignKey("PaymentInfoId")]
+        [DisplayName("Credit Card")]
         public int PaymentInfoId { get; set; }
         public virtual PaymentInfo? PaymentInfo { get; set; }
 

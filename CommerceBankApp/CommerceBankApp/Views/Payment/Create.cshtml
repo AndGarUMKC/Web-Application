@@ -4,6 +4,19 @@
     ViewData["Title"] = "Create";
 }
 
+<script type="text/javascript">
+    function GetReferrer() {
+        var preUrl = document.referrer;
+        var urlInt = parseInt(preUrl.split("/")[5]);
+        if (urlInt != NaN || urlInt != "") {
+            document.getElementById("org").value = urlInt;
+        }
+        else {
+            window.location.href = "https://localhost:7108/Organization";
+        }
+    }
+</script>
+
 <h1>Create</h1>
 
 <h4>Payment</h4>
@@ -17,20 +30,22 @@
                 <input asp-for="DonatedAmount" class="form-control" />
                 <span asp-validation-for="DonatedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
                 <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
-                <select asp-for="OrganizationID" class ="form-control" asp-items="ViewBag.OrganizationID"></select>
+                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID"></input>
             </div>
+            <br />
+            <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
             <div class="form-group">
                 <label asp-for="PaymentInfoId" class="control-label"></label>
-                <select asp-for="PaymentInfoId" class ="form-control" asp-items="ViewBag.PaymentInfoId"></select>
+                <select asp-for="PaymentInfoId" class="form-control" asp-items="ViewBag.PaymentInfoId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
             </div>
         </form>
     </div>

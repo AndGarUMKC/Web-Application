@@ -50,9 +50,9 @@ namespace CommerceBankApp.Controllers
         // GET: Payment/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber");
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "UserName");
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationID");
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName");
             return View();
         }
 
@@ -69,9 +69,16 @@ namespace CommerceBankApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "UserName", payment.ApplicationUserId);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName", payment.OrganizationID);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
+
+            string errors = string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage));
+
+            ModelState.AddModelError("", errors);
+
             return View(payment);
         }
 
@@ -88,9 +95,9 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "UserName", payment.ApplicationUserId);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationName", payment.OrganizationID);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
             return View(payment);
         }
 
@@ -127,8 +134,8 @@ namespace CommerceBankApp.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
-            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "OrganizationID", payment.OrganizationID);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
             return View(payment);
         }
 
