@@ -32,7 +32,7 @@
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
-                <select asp-for="ApplicationUserId" class ="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+                <input asp-for="ApplicationUserId" class ="form-control" value="@ViewBag.userid"></input>
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
@@ -42,15 +42,16 @@
             <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
             <div class="form-group">
                 <label asp-for="PaymentInfoId" class="control-label"></label>
-                <select asp-for="PaymentInfoId" class="form-control" asp-items="ViewBag.PaymentInfoId"></select>
+                <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

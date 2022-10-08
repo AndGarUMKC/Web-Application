@@ -9,16 +9,21 @@ using CommerceBankApp.Data;
 using CommerceBankApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using CommerceBankApp.Services;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using CommerceBankApp.Areas.Identity.Data;
 
 namespace CommerceBankApp.Controllers
 {
     public class OrganizationController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public OrganizationController(ApplicationDbContext context)
+        public OrganizationController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Organization
@@ -35,7 +40,7 @@ namespace CommerceBankApp.Controllers
         }
 
         // POST: Organization/ShowSearchResults
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
         {
             var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser).Include(p => p.Payment);
             return View("Index", await applicationDbContext.Where(o => o.OrganizationName.Contains(SearchPhrase)).ToListAsync());
@@ -64,7 +69,8 @@ namespace CommerceBankApp.Controllers
         // GET: Organization/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
+            //ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -82,7 +88,8 @@ namespace CommerceBankApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
+            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
+            //ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
 
             string errors = string.Join("; ", ModelState.Values
                             .SelectMany(x => x.Errors)

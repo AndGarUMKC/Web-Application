@@ -59,7 +59,6 @@
             if (Model?.Payment != null)
             {
                 var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
-
                 foreach (var items in reversesort)
                 {
                     <li class="list-group-item">
