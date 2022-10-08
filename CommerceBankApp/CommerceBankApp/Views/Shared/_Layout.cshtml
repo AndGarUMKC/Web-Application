@@ -9,15 +9,13 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CommerceBankApp.styles.css" asp-append-version="true" />
     <link rel="icon" href="~/commerceimg.png" type="image/x-icon type" />
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom header-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand" asp-area="" asp-controller="Organization" asp-action="Index">
                     <img src="~/commerceimg.png" alt="Commerce Image" style="width:65px;height:65px;">
                     Commerce Donations
                 </a>
@@ -27,19 +25,17 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-@*                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Donations">Donations</a>
-                        </li>
-                        *@
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Organization" asp-action="Index">Organizations</a>
+                            <a class="nav-link" asp-area="" asp-controller="Organization" asp-action="Create">
+                                <i class="fa-sharp fa-solid fa-circle-plus"></i>
+                                New Fundraiser
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Payment" asp-action="Index">Payments</a>
-                        </li>
+                        @*
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="PaymentInfo" asp-action="Index">PaymentInfo</a>
                         </li>
+                        *@
                         <li class="nav-item">
                             <partial name="~/Views/Organization/ShowSearchForm.cshtml" asp-for="Organization" />
                         </li>

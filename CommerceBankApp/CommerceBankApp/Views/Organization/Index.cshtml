@@ -16,11 +16,10 @@
     {
         var sum = 0f;
         if (item.Payment != null) {
-            sum = item.Payment.Sum(p => p.DonatedAmount);  <!-- WILL THIS RUN ONCE DONATED TO??? -->
+            sum = item.Payment.Sum(p => p.DonatedAmount);
         }
-        
-            <div class="col">
-                <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;">
+        <div class="col">
+            <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;"> <!-- ~/Organization/{asp-action}/{asp-route-id} -->
                 <div class="card h-100" style="background-color:#dddddd;">
                     <img class="card-img-top" style="height:225px" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
                     <div class="card-body">
@@ -30,12 +29,10 @@
                             @Html.DisplayFor(modelItem => item.ApplicationUser.UserName) | 
                             @String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)
                         </small></p>
-                        
                     </div>
                 </div>
             </a>
-            </div>
-        
+        </div>
     }
 </div>
 

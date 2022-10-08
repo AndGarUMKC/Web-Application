@@ -18,8 +18,8 @@ namespace CommerceBankApp.Models
         public DateTime DonatedDate { get; set; }
 
         // FOREIGN KEYS
-        [ForeignKey("ApplicationUserId")]
-        public string ApplicationUserId { get; set; }
+        [ForeignKey("UserName")]
+        public string UserName { get; set; }
         public virtual ApplicationUser? ApplicationUser { get; set; }
 
         [ForeignKey("OrganizationID")]
@@ -27,6 +27,7 @@ namespace CommerceBankApp.Models
         public virtual Organization? Organization { get; set; }
 
         [ForeignKey("PaymentInfoId")]
+        [DisplayName("Credit Card")]
         public int PaymentInfoId { get; set; }
         public virtual PaymentInfo? PaymentInfo { get; set; }
 

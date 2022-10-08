@@ -9,6 +9,10 @@ namespace CommerceBankApp.Models
     {
         public int PaymentInfoId { get; set; }
 
+        [DisplayName("Payment Name")]
+        [Required(ErrorMessage = "Please enter a credit card name")]
+        public string PaymentInfoName { get; set; }
+
         [DisplayName("Card Number")]
         [Required(ErrorMessage = "Please enter the credit card number")]
         [CreditCard]
@@ -16,7 +20,8 @@ namespace CommerceBankApp.Models
 
         [DisplayName("CVC Number")]
         [Required(ErrorMessage = "Please enter the CVC number")]
-        public int cvcNumber { get; set; }
+        [MinLength(3), MaxLength(3)]
+        public string cvcNumber { get; set; }
 
         [DisplayName("Expiration Date")]
         [DataType(DataType.Date)]

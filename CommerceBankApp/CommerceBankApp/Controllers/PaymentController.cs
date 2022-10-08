@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CommerceBankApp.Data;
 using CommerceBankApp.Models;
+using CommerceBankApp.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CommerceBankApp.Controllers
 {
     public class PaymentController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PaymentController(ApplicationDbContext context)
+        public PaymentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Payment
@@ -48,11 +53,14 @@ namespace CommerceBankApp.Controllers
         }
 
         // GET: Payment/Create
+        [Authorize]
         public IActionResult Create()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewBag.UserName = _userManager.GetUserName(HttpContext.User);
+            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber");
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo.Where(p => p.ApplicationUserId.Equals(_userManager.GetUserId(HttpContext.User))),
+                                                        "PaymentInfoId", "PaymentInfoName");
             return View();
         }
 
@@ -60,22 +68,31 @@ namespace CommerceBankApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,DonatedDate,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId")] Payment payment)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(payment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/Organization/Details/" + payment.OrganizationID);
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
+            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
+            ViewBag.UserName = _userManager.GetUserName(HttpContext.User);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo.Where(p => p.ApplicationUserId.Equals(_userManager.GetUserId(HttpContext.User))),
+                                                        "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
+
+            string errors = string.Join("; ", ModelState.Values
+                                        .SelectMany(x => x.Errors)
+                                        .Select(x => x.ErrorMessage));
+            ModelState.AddModelError("", errors);
             return View(payment);
         }
 
         // GET: Payment/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Payment == null)
@@ -88,9 +105,8 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
             return View(payment);
         }
 
@@ -98,8 +114,9 @@ namespace CommerceBankApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,DonatedDate,ApplicationUserId,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId")] Payment payment)
         {
             if (id != payment.PaymentId)
             {
@@ -124,15 +141,15 @@ namespace CommerceBankApp.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/");
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", payment.ApplicationUserId);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "cardNumber", payment.PaymentInfoId);
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
             return View(payment);
         }
 
         // GET: Payment/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Payment == null)
@@ -163,13 +180,14 @@ namespace CommerceBankApp.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Payment'  is null.");
             }
             var payment = await _context.Payment.FindAsync(id);
+            var getID = payment?.OrganizationID;
             if (payment != null)
             {
                 _context.Payment.Remove(payment);
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("~/Organization/Details/" + getID);
         }
 
         private bool PaymentExists(int id)

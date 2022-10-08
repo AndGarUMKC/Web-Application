@@ -20,6 +20,11 @@ namespace CommerceBankApp.Data
             // Add your customizations after calling base.OnModelCreating(builder);
             //builder.Entity<Organization>().HasMany(p => p.Payment);
             //builder.Entity<Organization>().HasMany(p => p.DonationType).WithMany(d => d.Organization);
+            builder.Entity<Payment>()
+                .HasOne(p => p.ApplicationUser)
+                .WithMany(b => b.Payment)
+                .HasForeignKey(p => p.UserName)
+                .HasPrincipalKey(b => b.UserName);
         }
 
         public DbSet<CommerceBankApp.Models.DonationType> DonationType { get; set; }
