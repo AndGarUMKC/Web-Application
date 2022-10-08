@@ -71,6 +71,7 @@ namespace CommerceBankApp.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -146,10 +147,6 @@ namespace CommerceBankApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"), 1L, 1);
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<float>("DonatedAmount")
                         .HasColumnType("real");
 
@@ -162,13 +159,17 @@ namespace CommerceBankApp.Migrations
                     b.Property<int>("PaymentInfoId")
                         .HasColumnType("int");
 
-                    b.HasKey("PaymentId");
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(256)");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasKey("PaymentId");
 
                     b.HasIndex("OrganizationID");
 
                     b.HasIndex("PaymentInfoId");
+
+                    b.HasIndex("UserName");
 
                     b.ToTable("Payment");
                 });
@@ -373,12 +374,6 @@ namespace CommerceBankApp.Migrations
 
             modelBuilder.Entity("CommerceBankApp.Models.Payment", b =>
                 {
-                    b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
-                        .WithMany("Payment")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CommerceBankApp.Models.Organization", "Organization")
                         .WithMany("Payment")
                         .HasForeignKey("OrganizationID")
@@ -388,6 +383,13 @@ namespace CommerceBankApp.Migrations
                     b.HasOne("CommerceBankApp.Models.PaymentInfo", "PaymentInfo")
                         .WithMany("Payment")
                         .HasForeignKey("PaymentInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany("Payment")
+                        .HasForeignKey("UserName")
+                        .HasPrincipalKey("UserName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

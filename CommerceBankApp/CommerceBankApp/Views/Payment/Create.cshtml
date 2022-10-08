@@ -30,9 +30,9 @@
                 <input asp-for="DonatedAmount" class="form-control" />
                 <span asp-validation-for="DonatedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group" style="display:none">
-                <label asp-for="ApplicationUserId" class="control-label"></label>
-                <input asp-for="ApplicationUserId" class ="form-control" value="@ViewBag.userid"></input>
+            <div class="form-group" >
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" value="@ViewBag.UserName"></input>
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
