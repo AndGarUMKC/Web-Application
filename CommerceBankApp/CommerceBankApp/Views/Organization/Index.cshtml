@@ -20,12 +20,16 @@
         }
         <div class="col">
             <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;"> <!-- ~/Organization/{asp-action}/{asp-route-id} -->
-                <div class="card h-100" style="background-color:#dddddd;">
+                <div class="card h-100 rounded-3" style="background-color:#dddddd;">
                     <img class="card-img-top" style="height:225px" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.OrganizationDescription)</p>
-                        <p class="card-text"><small class="text-muted">
+                        @{
+                            var thisstring = Html.DisplayTextFor(modelItem => item.OrganizationDescription);
+                            thisstring = thisstring.Length <= 105 ? thisstring : thisstring.Substring(0, 105) + " ...";
+                        }
+                        <p class="card-text">@thisstring</p>
+                        <p class="card-text mt-auto"><small class="text-muted">
                             @Html.DisplayFor(modelItem => item.ApplicationUser.UserName) | 
                             @String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)
                         </small></p>

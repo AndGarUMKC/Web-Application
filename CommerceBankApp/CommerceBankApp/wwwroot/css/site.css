@@ -48,18 +48,16 @@ html {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+/* background-color: #eee; */
 body {
     margin-bottom: 60px;
     font-family: 'Open Sans', sans-serif;
-    background-color: #eee;
+    background: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 header {
     background-color: #4FA800;
-    
-    font-weight:600;
+    font-weight: 600;
 }
 
 footer {
@@ -103,4 +101,188 @@ div.card-content {
 div.login-form-icon {
     text-align: center;
 }
- 
+
+
+
+.a-image--background {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.a-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+
+/* CSS  
+    #aeda86 -- lighter green
+    #4FA800 -- commerce light green
+    #006747 -- commerce dark green
+*/
+.button-87 {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #4FA800;
+    background-image: linear-gradient(45deg, #006747 0%, #4FA800 51%, #006747 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-87:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-87:active {
+    transform: scale(0.95);
+}
+
+
+
+
+.stretch-card > .card {
+    width: 100%;
+    min-width: 100%
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 3rem
+}
+
+.card {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #3da5f;
+    border-radius: 0
+}
+
+    .card .card-block {
+        padding: 1.25rem;
+    }
+
+h6 {
+    font-size: 16px !important;
+}
+
+.text-c-green {
+    color: #4FA800;
+}
+
+.m-l-10 {
+    margin-left: 10px;
+}
+
+.proj-progress-card .progress {
+    height: 6px;
+    overflow: visible;
+    margin-bottom: 10px;
+}
+
+    .proj-progress-card .progress .progress-bar {
+        position: relative;
+    }
+
+.progress .progress-bar {
+    height: 100%;
+    color: inherit;
+}
+
+.bg-c-red {
+    background: #FF5370;
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-red:after {
+    border: 3px solid #FF5370;
+}
+
+.proj-progress-card .progress .progress-bar:after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.bg-c-blue {
+    background: #4099ff;
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-blue:after {
+    border: 3px solid #4099ff;
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-green:after {
+    border: 3px solid #4FA800;
+}
+
+.bg-c-green {
+    background: #4FA800;
+}
+
+.bg-c-yellow {
+    background: #FFB64D;
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-yellow:after {
+    border: 3px solid #FFB64D;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.text-c-red {
+    color: #FF5370;
+}
+

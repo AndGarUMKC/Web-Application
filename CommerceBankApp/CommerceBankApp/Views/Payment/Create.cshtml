@@ -30,7 +30,7 @@
                 <input asp-for="DonatedAmount" class="form-control" />
                 <span asp-validation-for="DonatedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group" >
+            <div class="form-group" style="display:none">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" value="@ViewBag.UserName"></input>
             </div>
@@ -38,20 +38,17 @@
                 <label asp-for="OrganizationID" class="control-label"></label>
                 <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID"></input>
             </div>
-            <br />
             <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
             <div class="form-group">
                 <label asp-for="PaymentInfoId" class="control-label"></label>
                 <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
             </div>
-            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
             </div>
         </form>
     </div>
 </div>
-<br />
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

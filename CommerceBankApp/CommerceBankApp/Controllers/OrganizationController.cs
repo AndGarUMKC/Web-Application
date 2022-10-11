@@ -166,6 +166,7 @@ namespace CommerceBankApp.Controllers
 
             var organization = await _context.Organization
                 .Include(o => o.ApplicationUser)
+                .Include(p => p.Payment)
                 .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {

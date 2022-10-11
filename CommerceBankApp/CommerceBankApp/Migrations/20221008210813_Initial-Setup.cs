@@ -188,7 +188,7 @@ namespace CommerceBankApp.Migrations
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -258,19 +258,19 @@ namespace CommerceBankApp.Migrations
                         column: x => x.UserName,
                         principalTable: "AspNetUsers",
                         principalColumn: "UserName",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Payment_Organization_OrganizationID",
                         column: x => x.OrganizationID,
                         principalTable: "Organization",
                         principalColumn: "OrganizationID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Payment_PaymentInfo_PaymentInfoId",
                         column: x => x.PaymentInfoId,
                         principalTable: "PaymentInfo",
                         principalColumn: "PaymentInfoId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
