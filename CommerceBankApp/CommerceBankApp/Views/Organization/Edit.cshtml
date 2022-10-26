@@ -4,6 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
+@{
+    var goal = @Html.DisplayTextFor(p => p.DonationGoal);
+    goal = String.Format("{0:G}", goal);
+}
+
 <h1>Edit</h1>
 
 <h4>Organization</h4>
@@ -20,7 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DonationGoal" class="control-label"></label>
-                <input asp-for="DonationGoal" class="form-control" />
+                <input asp-for="DonationGoal" class="form-control" value="@goal"/>
                 <span asp-validation-for="DonationGoal" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,7 +38,7 @@
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none;">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
                 <select asp-for="ApplicationUserId" class="form-control" asp-items="ViewBag.ApplicationUserId"></select>
                 <span asp-validation-for="ApplicationUserId" class="text-danger"></span>

@@ -36,11 +36,6 @@
                                 New Fundraiser
                             </a>
                         </li>
-                        @*
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="PaymentInfo" asp-action="Index">PaymentInfo</a>
-                        </li>
-                        *@
                         <li class="nav-item">
                             <partial name="~/Views/Organization/ShowSearchForm.cshtml" asp-for="Organization" />
                         </li>
@@ -55,10 +50,6 @@
             @RenderBody()
         </main>
     </div>
-
-
-
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Commerce Bank - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

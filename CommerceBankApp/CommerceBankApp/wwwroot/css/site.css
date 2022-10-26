@@ -1,5 +1,7 @@
 html {
     font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 a {
@@ -39,11 +41,6 @@ a {
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -204,9 +201,9 @@ div.login-form-icon {
     border-radius: 0
 }
 
-    .card .card-block {
-        padding: 1.25rem;
-    }
+.card .card-block {
+    padding: 1.25rem;
+}
 
 h6 {
     font-size: 16px !important;
@@ -226,9 +223,9 @@ h6 {
     margin-bottom: 10px;
 }
 
-    .proj-progress-card .progress .progress-bar {
-        position: relative;
-    }
+.proj-progress-card .progress .progress-bar {
+    position: relative;
+}
 
 .progress .progress-bar {
     height: 100%;
@@ -286,3 +283,29 @@ h6 {
     color: #FF5370;
 }
 
+
+
+/*
+a.active {
+    border-bottom: 2px solid #55c57a;
+}
+
+.nav-link:hover {
+    color: #55c57a;
+}
+
+.nav-pills .nav-link.active {
+    color: black;
+    background-color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding-bottom: 1.3rem;
+}
+
+.form-control {
+    border: none;
+}
+*/

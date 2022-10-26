@@ -15,8 +15,12 @@
     @foreach (var item in Model)
     {
         var sum = 0f;
+        var name = "Anonymous";
         if (item.Payment != null) {
             sum = item.Payment.Sum(p => p.DonatedAmount);
+        }
+        if (item.ApplicationUser != null) {
+            name = Html.DisplayTextFor(n => item.ApplicationUser.UserName);
         }
         <div class="col">
             <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;"> <!-- ~/Organization/{asp-action}/{asp-route-id} -->
@@ -26,11 +30,11 @@
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
                         @{
                             var thisstring = Html.DisplayTextFor(modelItem => item.OrganizationDescription);
-                            thisstring = thisstring.Length <= 105 ? thisstring : thisstring.Substring(0, 105) + " ...";
+                            thisstring = thisstring.Length <= 100 ? thisstring : thisstring.Substring(0, 100) + " ...";
                         }
                         <p class="card-text">@thisstring</p>
                         <p class="card-text mt-auto"><small class="text-muted">
-                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName) | 
+                            @name | 
                             @String.Format("{0:C2}", sum) / @Html.DisplayFor(modelItem => item.DonationGoal)
                         </small></p>
                     </div>

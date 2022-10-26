@@ -1,32 +1,27 @@
-﻿using CommerceBankApp.Areas.Identity.Data;
-using System.ComponentModel;
+﻿using MessagePack;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using CommerceBankApp.Areas.Identity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CommerceBankApp.Models
 {
-    public class PaymentInfo
+    public class PaymentInfo2
     {
-        public int PaymentInfoId { get; set; }
+        public int PaymentInfo2Id { get; set; }
 
         [DisplayName("Payment Name")]
-        [Required(ErrorMessage = "Please enter a credit card name")]
-        public string PaymentInfoName { get; set; }
+        [Required(ErrorMessage = "Please enter a bank account name")]
+        public string PaymentInfo2Name { get; set; }
 
-        [DisplayName("Card Number")]
-        [Required(ErrorMessage = "Please enter the credit card number")]
-        [CreditCard]
-        public string cardNumber { get; set; }
+        [DisplayName("Account Number")]
+        [Required(ErrorMessage = "Please enter the bank account number")]
+        public string BankAccount { get; set; }
 
-        [DisplayName("CVC Number")]
-        [Required(ErrorMessage = "Please enter the CVC number")]
-        [MinLength(3), MaxLength(3)]
-        public string cvcNumber { get; set; }
-
-        [DisplayName("Expiration Date")]
-        [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Please enter an expiration date")]
-        public DateTime cardExpiration { get; set; }
+        [DisplayName("Routing Number")]
+        [Required(ErrorMessage = "Please enter the routing number")]
+        [MinLength(9), MaxLength(9)]
+        public string Routing { get; set; }
 
         [DisplayName("Billing Address")]
         [Required(ErrorMessage = "Please enter the billing address")]
@@ -51,9 +46,10 @@ namespace CommerceBankApp.Models
 
         public virtual ICollection<Payment>? Payment { get; set; }
 
-        public PaymentInfo ()
+        public PaymentInfo2()
         {
 
         }
-	}
+
+    }
 }

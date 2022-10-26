@@ -7,14 +7,14 @@
 @{
     var sum = 0f;
     var percent = 0f;
-    var LessPercent = 100f;
-    var LessGoal = Model.DonationGoal;
+    //var LessPercent = 100f;
+    //var LessGoal = Model.DonationGoal;
     if (Model.Payment != null)
     {
         sum = Model.Payment.Sum(p => p.DonatedAmount);
         percent = (sum / Model.DonationGoal) * 100;
-        LessPercent = 100 - percent;
-        LessGoal -= sum;
+        //LessPercent = 100 - percent;
+        //LessGoal -= sum;
     }
 }
 
