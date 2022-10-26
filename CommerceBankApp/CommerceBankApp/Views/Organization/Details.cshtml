@@ -7,6 +7,7 @@
 @{
     var sum = 0f;
     var percent = 0f;
+    var name = "Anonymous";
     //var LessPercent = 100f;
     //var LessGoal = Model.DonationGoal;
     if (Model.Payment != null)
@@ -15,6 +16,9 @@
         percent = (sum / Model.DonationGoal) * 100;
         //LessPercent = 100 - percent;
         //LessGoal -= sum;
+    }
+    if (Model.ApplicationUser != null) {
+        name = Html.DisplayTextFor(p => p.ApplicationUser.UserName);
     }
 }
 
@@ -33,7 +37,7 @@
             <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a> |
             <a asp-action="Index">Back to List</a>
             <p>
-                @Html.DisplayFor(a => a.ApplicationUser.UserName) is organizing this fundraiser.
+                @name is organizing this fundraiser.
             </p>
             <hr />
             <p>
@@ -77,16 +81,20 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            @{
-                                if (Model?.Payment != null)
+                        @{
+                            if (Model?.Payment != null)
+                            {
+                                var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
+                                foreach (var items in reversesort)
                                 {
-                                    var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
-                                    foreach (var items in reversesort)
-                                    {
-                                        <li class="list-group-item">
+                                    var DonationName = "Anonymous";
+                                    if (items.UserName != null) {
+                                        DonationName = Html.DisplayTextFor(item => items.UserName);
+                                    }
+                                    <li class="list-group-item">
                                             <center>
                                                 @Html.DisplayFor(item => items.DonatedAmount) |
-                                                @Html.DisplayFor(item => items.UserName) |
+                                                @DonationName |
                                                 @Html.DisplayFor(item => items.DonatedDate)
                                             </center>
                                         </li>
