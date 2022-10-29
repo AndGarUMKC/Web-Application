@@ -120,6 +120,8 @@ div.login-form-icon {
     #aeda86 -- lighter green
     #4FA800 -- commerce light green
     #006747 -- commerce dark green
+
+    
 */
 .button-87 {
     margin: 10px;
@@ -151,7 +153,6 @@ div.login-form-icon {
 .button-87:active {
     transform: scale(0.95);
 }
-
 
 
 
@@ -232,14 +233,6 @@ h6 {
     color: inherit;
 }
 
-.bg-c-red {
-    background: #FF5370;
-}
-
-.proj-progress-card .progress .progress-bar.bg-c-red:after {
-    border: 3px solid #FF5370;
-}
-
 .proj-progress-card .progress .progress-bar:after {
     content: "";
     background: #fff;
@@ -251,14 +244,6 @@ h6 {
     height: 15px;
 }
 
-.bg-c-blue {
-    background: #4099ff;
-}
-
-.proj-progress-card .progress .progress-bar.bg-c-blue:after {
-    border: 3px solid #4099ff;
-}
-
 .proj-progress-card .progress .progress-bar.bg-c-green:after {
     border: 3px solid #4FA800;
 }
@@ -267,45 +252,102 @@ h6 {
     background: #4FA800;
 }
 
-.bg-c-yellow {
-    background: #FFB64D;
-}
-
-.proj-progress-card .progress .progress-bar.bg-c-yellow:after {
-    border: 3px solid #FFB64D;
-}
-
 .m-b-30 {
     margin-bottom: 30px;
 }
 
-.text-c-red {
-    color: #FF5370;
+
+
+.tabs {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+/* tab list item */
+.tabs .tabs-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;   
+}
+    /*margin-right: 2px;*/
+.tabs .tabs-list li {
+    width: 49%;
+    float: left;
+    margin: 0px;
+    
+    padding: 10px 5px;
+    text-align: center;
+    background-color: #4FA800;
+    border-radius: 3px;       
+}
+
+.tabs .tabs-list li:hover {
+    cursor: pointer;
+}
+
+.tabs .tabs-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+    /* Tab content section */
+.tabs .tab {
+    display: none;
+    width: 98%;
+    min-height: 250px;
+    height: auto;
+    border-radius: 3px;
+    padding: 20px 15px;
+    background-color: #eee;
+    color: darkslategray;
+    clear: both;
+}
+
+.tabs .tab h3 {
+    border-bottom: 3px solid #4FA800;
+    letter-spacing: 1px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.tabs .tab p {
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+/* When active state */
+.active {
+    display: block !important;
+}
+
+.tabs .tabs-list li.active {
+    background-color: #eee !important;
+    color: black !important;
 }
 
 
-
-/*
-a.active {
-    border-bottom: 2px solid #55c57a;
+.active a {
+    color: black !important;
 }
 
-.nav-link:hover {
-    color: #55c57a;
+/* media query */
+@media screen and (max-width:360px) {
+    .tabs {
+        margin: 0;
+        width: 98%;
+    }
+
+    .tabs .tabs-list li {
+        width: 80px;
+    }
 }
 
-.nav-pills .nav-link.active {
-    color: black;
-    background-color: white;
-    border-radius: 0.5rem 0.5rem 0 0;
-    font-weight: 600;
+.col a .card {
+    transition: all .15s ease-in-out;
 }
 
-.tab-content {
-    padding-bottom: 1.3rem;
+.col a .card:hover {
+    transform: scale(1.05); 
 }
-
-.form-control {
-    border: none;
-}
-*/

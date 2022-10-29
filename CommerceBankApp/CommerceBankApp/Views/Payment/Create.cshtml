@@ -4,25 +4,12 @@
     ViewData["Title"] = "Create";
 }
 
-<script type="text/javascript">
-    function GetReferrer() {
-        let preUrl = document.referrer;
-        let urlInt = parseInt(preUrl.split("/")[5]);
-        if (urlInt != NaN || urlInt != "") {
-            document.getElementById("org").value = urlInt;
-        }
-        else {
-            window.location.href = "https://localhost:7108/Organization";
-        }
-    }
-</script>
-
 <h1>Create</h1>
 
 <h4>Payment</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -32,75 +19,61 @@
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" value="@ViewBag.UserName"></input>
+                <input asp-for="UserName" class="form-control" value="@ViewBag.UserName" />
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
-                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID"></input>
+                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID" />
             </div>
 
-            @*
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-                <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <div id="menu1" class="tab-pane fade in active">
-                    <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
-                    <div class="form-group">
-                        <label asp-for="PaymentInfoId" class="control-label"></label>
-                        <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
-                    </div>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <a asp-action="Create" asp-controller="PaymentInfo2">Add Bank Account</a>
-                    <div class="form-group">
-                        <label asp-for="PaymentInfo2Id" class="control-label"></label>
-                        <select asp-for="PaymentInfo2Id" class="form-control" asp-items="@ViewBag.PaymentInfo2Id"></select>
-                    </div>
-                </div>
-            </div>
-            *@
+            <br />
 
 
-            <div class="container card shadow d-flex justify-content-center mt-5">
-                <!-- nav options -->
-                <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Credit Card</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Bank Account</a>
-                    </li>
+            <div class="tabs">
+                <ul class="tabs-list">
+                    <li class="active"><a href="#tab1">Credit Card</a></li>
+                    <li><a href="#tab2">Bank Account</a></li>
                 </ul>
 
-                <!-- content -->
-                <div class="tab-content" id="pills-tabContent p-3">
-                    <!-- 1st card -->
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
-                        <div class="form-group">
-                            <label asp-for="PaymentInfoId" class="control-label"></label>
-                            <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
-                        </div>
+                <div id="tab1" class="tab active">
+                    <h3><label asp-for="PaymentInfoId" class="control-label"></label></h3>
+                    <div class="form-group">
+                        <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
                     </div>
-                    <!-- 2nd card -->
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <a asp-action="Create" asp-controller="PaymentInfo2">Add Bank Account</a>
-                        <div class="form-group">
-                            <label asp-for="PaymentInfo2Id" class="control-label"></label>
-                            <select asp-for="PaymentInfo2Id" class="form-control" asp-items="@ViewBag.PaymentInfo2Id"></select>
-                        </div>
+                    <br />
+                    <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
+                </div>
+
+                <div id="tab2" class="tab">
+                    <h3><label asp-for="PaymentInfo2Id" class="control-label"></label></h3>
+                    <div class="form-group">
+                        <select asp-for="PaymentInfo2Id" class="form-control" asp-items="@ViewBag.PaymentInfo2Id"></select>
                     </div>
+                    <br />
+                    <a asp-action="Create" asp-controller="PaymentInfo2">Add Bank Account</a>
                 </div>
             </div>
-            
+
+
             <br />
+
+            <button class="button-87" role="button" onclick="GetReferrer()">
+                Donate
+            </button>
+            @*
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
             </div>
+            *@
         </form>
+    </div>
+
+    <div class="col-8">
+        <h4>
+            @Html.DisplayFor(o => o.OrganizationID)
+        </h4>
+        <hr />
+
     </div>
 </div>
 <br />

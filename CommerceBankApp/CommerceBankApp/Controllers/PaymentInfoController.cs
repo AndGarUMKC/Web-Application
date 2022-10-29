@@ -66,7 +66,7 @@ namespace CommerceBankApp.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentInfoId,PaymentInfoName,cardNumber,cvcNumber,cardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Create([Bind("PaymentInfoId,PaymentInfoName,CardNumber,CvcNumber,CardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace CommerceBankApp.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,PaymentInfoName,cardNumber,cvcNumber,cardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,PaymentInfoName,CardNumber,CvcNumber,CardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
         {
             if (id != paymentInfo.PaymentInfoId)
             {

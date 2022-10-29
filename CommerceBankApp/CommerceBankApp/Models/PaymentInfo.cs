@@ -16,17 +16,17 @@ namespace CommerceBankApp.Models
         [DisplayName("Card Number")]
         [Required(ErrorMessage = "Please enter the credit card number")]
         [CreditCard]
-        public string cardNumber { get; set; }
+        public string CardNumber { get; set; }
 
         [DisplayName("CVC Number")]
         [Required(ErrorMessage = "Please enter the CVC number")]
         [MinLength(3), MaxLength(3)]
-        public string cvcNumber { get; set; }
+        public string CvcNumber { get; set; }
 
         [DisplayName("Expiration Date")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Please enter an expiration date")]
-        public DateTime cardExpiration { get; set; }
+        public DateTime CardExpiration { get; set; }
 
         [DisplayName("Billing Address")]
         [Required(ErrorMessage = "Please enter the billing address")]

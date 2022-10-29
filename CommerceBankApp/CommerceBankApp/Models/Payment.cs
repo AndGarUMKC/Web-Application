@@ -31,7 +31,7 @@ namespace CommerceBankApp.Models
         public int? PaymentInfoId { get; set; }
         public virtual PaymentInfo? PaymentInfo { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey("PaymentInfo2Id")]
         [DisplayName("Bank Account")]
         public int? PaymentInfo2Id { get; set; }
         public virtual PaymentInfo2? PaymentInfo2 { get; set; }

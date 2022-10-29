@@ -2,20 +2,13 @@
 
 @{
     ViewData["Title"] = @Html.DisplayFor(model => model.OrganizationName);
-}
-
-@{
     var sum = 0f;
     var percent = 0f;
     var name = "Anonymous";
-    //var LessPercent = 100f;
-    //var LessGoal = Model.DonationGoal;
     if (Model.Payment != null)
     {
         sum = Model.Payment.Sum(p => p.DonatedAmount);
         percent = (sum / Model.DonationGoal) * 100;
-        //LessPercent = 100 - percent;
-        //LessGoal -= sum;
     }
     if (Model.ApplicationUser != null) {
         name = Html.DisplayTextFor(p => p.ApplicationUser.UserName);
@@ -31,7 +24,6 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-7">
-            
             <img class="a-image a-image--background rounded-3 shadow mb-5" style="width:720px; height:405px;" src="@Html.DisplayTextFor(modelItem => modelItem.ImageUrl)" alt="Error Loading Image">
             <a asp-action="Edit" asp-route-id="@Model?.OrganizationID">Edit</a> |
             <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a> |
@@ -47,63 +39,61 @@
         </div>
         <div class="col-4">
             <div class="card proj-progress-card shadow p-3 mb-5 rounded-3 sticky-top">
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="m-b-30 f-w-700">
-                                    @String.Format("{0:C2}", sum)
-                                    <small class="text-muted">
-                                        raised of @Html.DisplayFor(modelItem => Model.DonationGoal) goal
-                                    </small>
-                                    <span class="text-c-green m-l-10">
-                                        <br />
-                                        @String.Format("{0:0.#}%", percent)
-                                    </span>
-                                </h5>
-                                @*
-                                <div class="progress" style="height: 30px">
-                                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="@sum" aria-valuemin="0" aria-valuemax="@Model.DonationGoal" style="width: @percent%"></div>
-                                    <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: @LessPercent%" aria-valuenow="@LessGoal" aria-valuemin="0" aria-valuemax="@Model.DonationGoal"></div>
-                                </div>
-                                *@
-                                <div class="progress">
-                                    <div class="progress-bar bg-c-green" style="width:@percent%"></div>
-                                </div>
-                                
-                                <form action="/Payment/Create">
-                                    <button class="button-87" role="button">
-                                        Donate
-                                    </button>
-                                </form>
-
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="m-b-30 f-w-700">
+                                @String.Format("{0:C2}", sum)
+                                <small class="text-muted">
+                                    raised of @Html.DisplayFor(modelItem => Model.DonationGoal) goal
+                                </small>
+                                <span class="text-c-green m-l-10">
+                                    <br />
+                                    @String.Format("{0:0.#}%", percent)
+                                </span>
+                            </h5>
+                            @*
+                            <div class="progress" style="height: 30px">
+                            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="@sum" aria-valuemin="0" aria-valuemax="@Model.DonationGoal" style="width: @percent%"></div>
+                            <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: @LessPercent%" aria-valuenow="@LessGoal" aria-valuemin="0" aria-valuemax="@Model.DonationGoal"></div>
                             </div>
+                            *@
+                            <div class="progress">
+                                <div class="progress-bar bg-c-green" style="width:@percent%"></div>
+                            </div>
+                            <form action="/Payment/Create">
+                                <button class="button-87" role="button">
+                                    Donate
+                                </button>
+                            </form>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                        @{
-                            if (Model?.Payment != null)
-                            {
-                                var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
-                                foreach (var items in reversesort)
-                                {
-                                    var DonationName = "Anonymous";
-                                    if (items.UserName != null) {
-                                        DonationName = Html.DisplayTextFor(item => items.UserName);
-                                    }
-                                    <li class="list-group-item">
-                                            <center>
-                                                @Html.DisplayFor(item => items.DonatedAmount) |
-                                                @DonationName |
-                                                @Html.DisplayFor(item => items.DonatedDate)
-                                            </center>
-                                        </li>
-                                    }
-                                }
-                            }
-                        </ul>
-                    </div>
                 </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                    @{
+                        if (Model?.Payment != null)
+                        {
+                            var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
+                            foreach (var items in reversesort)
+                            {
+                                var DonationName = "Anonymous";
+                                if (items.UserName != null) {
+                                    DonationName = Html.DisplayTextFor(item => items.UserName);
+                                }
+                                <li class="list-group-item">
+                                    <center>
+                                        @Html.DisplayFor(item => items.DonatedAmount) |
+                                        @DonationName |
+                                        @Html.DisplayFor(item => items.DonatedDate)
+                                    </center>
+                                </li>
+                            }
+                        }
+                    }
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
