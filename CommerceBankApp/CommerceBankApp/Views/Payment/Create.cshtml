@@ -4,8 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
+<h1>Donate to @Html.DisplayFor(o => o.OrganizationID)</h1>
 <h4>Payment</h4>
 <hr />
 <div class="row">
@@ -54,17 +53,12 @@
                 </div>
             </div>
 
-
             <br />
 
             <button class="button-87" role="button" onclick="GetReferrer()">
                 Donate
             </button>
-            @*
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
-            </div>
-            *@
+
         </form>
     </div>
 
@@ -77,9 +71,9 @@
     </div>
 </div>
 <br />
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<button class="button-87" role="button" onclick="history.back()">
+    Back
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

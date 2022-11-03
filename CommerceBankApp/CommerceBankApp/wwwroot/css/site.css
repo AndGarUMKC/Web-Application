@@ -1,11 +1,102 @@
+/* enable dark mode */
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--font-color);
+    /*other styles*/
+}
+
+h1 {
+    color: var(--secondary-color);
+    /*other styles*/
+}
+
+a {
+    color: var(--primary-color);
+    /*other styles*/
+}
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+.theme-switch-wrapper em {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+    .theme-switch input {
+        display: none;
+    }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+    .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 26px;
+    }
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+
+
 html {
     font-size: 14px;
     position: relative;
     min-height: 100%;
-}
-
-a {
-    color: #0366d6;
 }
 
 .btn-primary {
@@ -45,11 +136,13 @@ button.accept-policy {
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-/* background-color: #eee; */
+/*  
+    background-color: #eee; 
+    background: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
+*/
 body {
     margin-bottom: 60px;
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
 }
 
 header {
@@ -100,7 +193,7 @@ div.login-form-icon {
 }
 
 
-
+/* fixed size image */
 .a-image--background {
     background-position: 50%;
     background-repeat: no-repeat;
@@ -115,13 +208,10 @@ div.login-form-icon {
 }
 
 
-
 /* CSS  
     #aeda86 -- lighter green
     #4FA800 -- commerce light green
     #006747 -- commerce dark green
-
-    
 */
 .button-87 {
     margin: 10px;
@@ -196,15 +286,20 @@ div.login-form-icon {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #eee;
     background-clip: border-box;
-    border: 1px solid #3da5f;
+    border: 1px solid #a9a9a9;
     border-radius: 0
 }
 
 .card .card-block {
     padding: 1.25rem;
 }
+
+.card-body .list-group li {
+    background-color: inherit;
+}
+
 
 h6 {
     font-size: 16px !important;
@@ -262,16 +357,15 @@ h6 {
     width: 100%;
     height: auto;
     margin: 0 auto;
-
 }
 
-/* tab list item */
 .tabs .tabs-list {
     list-style: none;
     margin: 0px;
     padding: 0px;   
 }
-    /*margin-right: 2px;*/
+
+/*margin-right: 2px;*/
 .tabs .tabs-list li {
     width: 49%;
     float: left;
@@ -328,7 +422,7 @@ h6 {
 }
 
 
-.active a {
+.tabs .tabs-list .active a {
     color: black !important;
 }
 
@@ -344,6 +438,8 @@ h6 {
     }
 }
 
+
+/* zoom on card hover */
 .col a .card {
     transition: all .15s ease-in-out;
 }

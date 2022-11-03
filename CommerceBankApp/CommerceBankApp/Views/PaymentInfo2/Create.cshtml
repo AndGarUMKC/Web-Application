@@ -3,10 +3,9 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>PaymentInfo2</h4>
+<br />
+<h1>Bank Account</h1>
+<h6>Save your banking information, so you can donate to your favorite cause with ease!</h6>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -58,22 +57,22 @@
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
-                <input asp-for="ApplicationUserId" class="form-control" value="@ViewBag.userid"></input>
+                <input asp-for="ApplicationUserId" class="form-control" value="@ViewBag.userid" />
             </div>
             
             <br />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <button class="button-87" style="width: 94%" role="button">
+                Create
+            </button>
             
         </form>
         
     </div>
 </div>
 <br />
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<button class="button-87" role="button" onclick="history.back()">
+    Back
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
