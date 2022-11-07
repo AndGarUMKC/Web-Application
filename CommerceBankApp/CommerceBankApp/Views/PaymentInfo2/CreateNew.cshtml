@@ -1,0 +1,84 @@
+﻿@*
+@model CommerceBankApp.Models.PaymentInfo2
+*@
+@inject PaymentInfo2 payment2
+@{
+    ViewData["Title"] = "Create";
+}
+@*
+<h1>Create</h1>
+
+<h4>PaymentInfo2</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        *@
+<form asp-controller="PaymentInfo2" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@payment2.PaymentInfo2Name" class="control-label"></label>
+        <input asp-for="@payment2.PaymentInfo2Name" class="form-control" />
+        <span asp-validation-for="@payment2.PaymentInfo2Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@payment2.BankAccount" class="control-label"></label>
+        <input asp-for="@payment2.BankAccount" class="form-control" />
+        <span asp-validation-for="@payment2.BankAccount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@payment2.Routing" class="control-label"></label>
+        <input asp-for="@payment2.Routing" class="form-control" />
+        <span asp-validation-for="@payment2.Routing" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@payment2.Address" class="control-label"></label>
+        <input asp-for="@payment2.Address" class="form-control" />
+        <span asp-validation-for="@payment2.Address" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <div class="form-group">
+                <label asp-for="@payment2.City" class="control-label"></label>
+                <input asp-for="@payment2.City" class="form-control" />
+                <span asp-validation-for="@payment2.City" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="form-group">
+                <label asp-for="@payment2.State" class="control-label"></label>
+                <input asp-for="@payment2.State" class="form-control" />
+                <span asp-validation-for="@payment2.State" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="form-group">
+                <label asp-for="@payment2.ZipCode" class="control-label"></label>
+                <input asp-for="@payment2.ZipCode" class="form-control" />
+                <span asp-validation-for="@payment2.ZipCode" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" style="display:none">
+        <label asp-for="@payment2.ApplicationUserId" class="control-label"></label>
+        <input asp-for="@payment2.ApplicationUserId" class="form-control" value="@ViewBag.userid"></input>
+    </div>
+    @*
+    <br />
+    <div class="form-group">
+    <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    *@
+</form>
+@*
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

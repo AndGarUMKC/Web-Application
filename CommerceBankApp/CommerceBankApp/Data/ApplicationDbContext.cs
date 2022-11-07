@@ -34,5 +34,7 @@ namespace CommerceBankApp.Data
         public DbSet<CommerceBankApp.Models.PaymentInfo> PaymentInfo { get; set; }
 
         public DbSet<CommerceBankApp.Models.Organization> Organization { get; set; }
+
+        public DbSet<CommerceBankApp.Models.PaymentInfo2> PaymentInfo2 { get; set; }
     }
 }

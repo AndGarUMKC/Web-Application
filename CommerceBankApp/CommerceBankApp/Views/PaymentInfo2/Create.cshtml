@@ -1,36 +1,31 @@
-﻿@model CommerceBankApp.Models.PaymentInfo
+﻿@model CommerceBankApp.Models.PaymentInfo2
 
 @{
     ViewData["Title"] = "Create";
 }
 <br />
-<h1>Credit Card</h1>
-<h6>Save your credit card information, so you can donate to your favorite cause with ease!</h6>
+<h1>Bank Account</h1>
+<h6>Save your banking information, so you can donate to your favorite cause with ease!</h6>
 <hr />
 <div class="row">
     <div class="col-md-4">
         
-        <form asp-controller="PaymentInfo" asp-action="Create">
+        <form asp-controller="PaymentInfo2" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="PaymentInfoName" class="control-label"></label>
-                <input asp-for="PaymentInfoName" class="form-control" />
-                <span asp-validation-for="PaymentInfoName" class="text-danger"></span>
+                <label asp-for="PaymentInfo2Name" class="control-label"></label>
+                <input asp-for="PaymentInfo2Name" class="form-control" />
+                <span asp-validation-for="PaymentInfo2Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CardNumber" class="control-label"></label>
-                <input asp-for="CardNumber" class="form-control" />
-                <span asp-validation-for="CardNumber" class="text-danger"></span>
+                <label asp-for="BankAccount" class="control-label"></label>
+                <input asp-for="BankAccount" class="form-control" />
+                <span asp-validation-for="BankAccount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CvcNumber" class="control-label"></label>
-                <input asp-for="CvcNumber" class="form-control" />
-                <span asp-validation-for="CvcNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardExpiration" class="control-label"></label>
-                <input asp-for="CardExpiration" class="form-control" />
-                <span asp-validation-for="CardExpiration" class="text-danger"></span>
+                <label asp-for="Routing" class="control-label"></label>
+                <input asp-for="Routing" class="form-control" />
+                <span asp-validation-for="Routing" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
@@ -62,7 +57,7 @@
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="ApplicationUserId" class="control-label"></label>
-                <input asp-for="ApplicationUserId" class ="form-control" value="@ViewBag.userid" />
+                <input asp-for="ApplicationUserId" class="form-control" value="@ViewBag.userid" />
             </div>
             
             <br />

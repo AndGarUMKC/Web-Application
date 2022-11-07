@@ -1,4 +1,4 @@
-﻿@model CommerceBankApp.Models.PaymentInfo
+﻿@model CommerceBankApp.Models.PaymentInfo2
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,32 +6,27 @@
 
 <h1>Edit</h1>
 
-<h4>PaymentInfo</h4>
+<h4>PaymentInfo2</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PaymentInfoId" />
+            <input type="hidden" asp-for="PaymentInfo2Id" />
             <div class="form-group">
-                <label asp-for="PaymentInfoName" class="control-label"></label>
-                <input asp-for="PaymentInfoName" class="form-control" />
-                <span asp-validation-for="PaymentInfoName" class="text-danger"></span>
+                <label asp-for="PaymentInfo2Name" class="control-label"></label>
+                <input asp-for="PaymentInfo2Name" class="form-control" />
+                <span asp-validation-for="PaymentInfo2Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CardNumber" class="control-label"></label>
-                <input asp-for="CardNumber" class="form-control" />
-                <span asp-validation-for="CardNumber" class="text-danger"></span>
+                <label asp-for="BankAccount" class="control-label"></label>
+                <input asp-for="BankAccount" class="form-control" />
+                <span asp-validation-for="BankAccount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CvcNumber" class="control-label"></label>
-                <input asp-for="CvcNumber" class="form-control" />
-                <span asp-validation-for="CvcNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardExpiration" class="control-label"></label>
-                <input asp-for="CardExpiration" class="form-control" />
-                <span asp-validation-for="CardExpiration" class="text-danger"></span>
+                <label asp-for="Routing" class="control-label"></label>
+                <input asp-for="Routing" class="form-control" />
+                <span asp-validation-for="Routing" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>

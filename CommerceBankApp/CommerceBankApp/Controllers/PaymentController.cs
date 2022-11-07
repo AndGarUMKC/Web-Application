@@ -27,7 +27,11 @@ namespace CommerceBankApp.Controllers
         // GET: Payment
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Payment.Include(p => p.ApplicationUser).Include(p => p.Organization).Include(p => p.PaymentInfo);
+            var applicationDbContext = _context.Payment
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Organization)
+                .Include(p => p.PaymentInfo)
+                .Include(p => p.PaymentInfo2);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -43,6 +47,7 @@ namespace CommerceBankApp.Controllers
                 .Include(p => p.ApplicationUser)
                 .Include(p => p.Organization)
                 .Include(p => p.PaymentInfo)
+                .Include(p => p.PaymentInfo2)
                 .FirstOrDefaultAsync(m => m.PaymentId == id);
             if (payment == null)
             {
@@ -59,8 +64,14 @@ namespace CommerceBankApp.Controllers
             ViewBag.UserName = _userManager.GetUserName(HttpContext.User);
             ViewBag.userid = _userManager.GetUserId(HttpContext.User);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo.Where(p => p.ApplicationUserId.Equals(_userManager.GetUserId(HttpContext.User))),
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo
+                                                        .Where(p => p.ApplicationUserId
+                                                        .Equals(_userManager.GetUserId(HttpContext.User))),
                                                         "PaymentInfoId", "PaymentInfoName");
+            ViewData["PaymentInfo2Id"] = new SelectList(_context.PaymentInfo2
+                                                        .Where(p => p.ApplicationUserId
+                                                        .Equals(_userManager.GetUserId(HttpContext.User))),
+                                                        "PaymentInfo2Id", "PaymentInfo2Name");
             return View();
         }
 
@@ -70,7 +81,7 @@ namespace CommerceBankApp.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Create([Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId,PaymentInfo2Id")] Payment payment)
         {
             if (ModelState.IsValid)
             {
@@ -81,9 +92,14 @@ namespace CommerceBankApp.Controllers
             ViewBag.userid = _userManager.GetUserId(HttpContext.User);
             ViewBag.UserName = _userManager.GetUserName(HttpContext.User);
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
-            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo.Where(p => p.ApplicationUserId.Equals(_userManager.GetUserId(HttpContext.User))),
+            ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo
+                                                        .Where(p => p.ApplicationUserId
+                                                        .Equals(_userManager.GetUserId(HttpContext.User))),
                                                         "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
-
+            ViewData["PaymentInfo2Id"] = new SelectList(_context.PaymentInfo2
+                                                        .Where(p => p.ApplicationUserId
+                                                        .Equals(_userManager.GetUserId(HttpContext.User))),
+                                                        "PaymentInfo2Id", "PaymentInfo2Name", payment.PaymentInfo2Id);
             string errors = string.Join("; ", ModelState.Values
                                         .SelectMany(x => x.Errors)
                                         .Select(x => x.ErrorMessage));
@@ -107,6 +123,7 @@ namespace CommerceBankApp.Controllers
             }
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
+            ViewData["PaymentInfo2Id"] = new SelectList(_context.PaymentInfo2, "PaymentInfo2Id", "PaymentInfo2Name", payment.PaymentInfo2Id);
             return View(payment);
         }
 
@@ -116,7 +133,7 @@ namespace CommerceBankApp.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId")] Payment payment)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentId,DonatedAmount,DonatedDate,UserName,OrganizationID,PaymentInfoId,PaymentInfo2Id")] Payment payment)
         {
             if (id != payment.PaymentId)
             {
@@ -145,6 +162,7 @@ namespace CommerceBankApp.Controllers
             }
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl", payment.OrganizationID);
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo, "PaymentInfoId", "PaymentInfoName", payment.PaymentInfoId);
+            ViewData["PaymentInfo2Id"] = new SelectList(_context.PaymentInfo2, "PaymentInfo2Id", "PaymentInfo2Name", payment.PaymentInfo2Id);
             return View(payment);
         }
 
@@ -161,6 +179,7 @@ namespace CommerceBankApp.Controllers
                 .Include(p => p.ApplicationUser)
                 .Include(p => p.Organization)
                 .Include(p => p.PaymentInfo)
+                .Include(p => p.PaymentInfo2)
                 .FirstOrDefaultAsync(m => m.PaymentId == id);
             if (payment == null)
             {

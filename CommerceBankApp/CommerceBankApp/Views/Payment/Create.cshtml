@@ -4,25 +4,11 @@
     ViewData["Title"] = "Create";
 }
 
-<script type="text/javascript">
-    function GetReferrer() {
-        var preUrl = document.referrer;
-        var urlInt = parseInt(preUrl.split("/")[5]);
-        if (urlInt != NaN || urlInt != "") {
-            document.getElementById("org").value = urlInt;
-        }
-        else {
-            window.location.href = "https://localhost:7108/Organization";
-        }
-    }
-</script>
-
-<h1>Create</h1>
-
+<h1>Donate to @Html.DisplayFor(o => o.OrganizationID)</h1>
 <h4>Payment</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -30,31 +16,64 @@
                 <input asp-for="DonatedAmount" class="form-control" />
                 <span asp-validation-for="DonatedAmount" class="text-danger"></span>
             </div>
-            <div class="form-group" >
+            <div class="form-group" style="display:none">
                 <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" value="@ViewBag.UserName"></input>
+                <input asp-for="UserName" class="form-control" value="@ViewBag.UserName" />
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
-                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID"></input>
+                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID" />
             </div>
+
             <br />
-            <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
-            <div class="form-group">
-                <label asp-for="PaymentInfoId" class="control-label"></label>
-                <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
+
+
+            <div class="tabs">
+                <ul class="tabs-list">
+                    <li class="active"><a href="#tab1">Credit Card</a></li>
+                    <li><a href="#tab2">Bank Account</a></li>
+                </ul>
+
+                <div id="tab1" class="tab active">
+                    <h3><label asp-for="PaymentInfoId" class="control-label"></label></h3>
+                    <div class="form-group">
+                        <select asp-for="PaymentInfoId" class="form-control" asp-items="@ViewBag.PaymentInfoId"></select>
+                    </div>
+                    <br />
+                    <a asp-action="Create" asp-controller="PaymentInfo">Add Credit Card</a>
+                </div>
+
+                <div id="tab2" class="tab">
+                    <h3><label asp-for="PaymentInfo2Id" class="control-label"></label></h3>
+                    <div class="form-group">
+                        <select asp-for="PaymentInfo2Id" class="form-control" asp-items="@ViewBag.PaymentInfo2Id"></select>
+                    </div>
+                    <br />
+                    <a asp-action="Create" asp-controller="PaymentInfo2">Add Bank Account</a>
+                </div>
             </div>
+
             <br />
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" onclick="GetReferrer()"/>
-            </div>
+
+            <button class="button-87" role="button" onclick="GetReferrer()">
+                Donate
+            </button>
+
         </form>
+    </div>
+
+    <div class="col-8">
+        <h4>
+            @Html.DisplayFor(o => o.OrganizationID)
+        </h4>
+        <hr />
+
     </div>
 </div>
 <br />
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<button class="button-87" role="button" onclick="history.back()">
+    Back
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

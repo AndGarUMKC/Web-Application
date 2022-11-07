@@ -55,8 +55,9 @@ namespace CommerceBankApp.Controllers
             }
 
             var organization = await _context.Organization
-                .Include(o => o.ApplicationUser).Include(p => p.Payment)
-                .FirstOrDefaultAsync(m => m.OrganizationID == id);
+                                    .Include(o => o.ApplicationUser)
+                                    .Include(p => p.Payment)
+                                    .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {
                 return NotFound();
@@ -90,13 +91,11 @@ namespace CommerceBankApp.Controllers
             }
             ViewBag.userid = _userManager.GetUserId(HttpContext.User);
             //ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", organization.ApplicationUserId);
-
             string errors = string.Join("; ", ModelState.Values
                             .SelectMany(x => x.Errors)
                             .Select(x => x.ErrorMessage));
 
             ModelState.AddModelError("", errors);
-
             return View(organization);
         }
 
@@ -164,8 +163,10 @@ namespace CommerceBankApp.Controllers
                 return NotFound();
             }
 
+            // may be able to remove payment to keep payments when org deleted?
             var organization = await _context.Organization
                 .Include(o => o.ApplicationUser)
+                .Include(p => p.Payment)
                 .FirstOrDefaultAsync(m => m.OrganizationID == id);
             if (organization == null)
             {

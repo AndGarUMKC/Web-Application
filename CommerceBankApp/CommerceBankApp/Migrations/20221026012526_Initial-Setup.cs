@@ -178,7 +178,7 @@ namespace CommerceBankApp.Migrations
                     DonationGoal = table.Column<float>(type: "real", nullable: false),
                     OrganizationDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -187,8 +187,8 @@ namespace CommerceBankApp.Migrations
                         name: "FK_Organization_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id", 
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -201,7 +201,11 @@ namespace CommerceBankApp.Migrations
                     cardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cvcNumber = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
                     cardExpiration = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<int>(type: "int", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -210,8 +214,34 @@ namespace CommerceBankApp.Migrations
                         name: "FK_PaymentInfo_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id", 
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PaymentInfo2",
+                columns: table => new
+                {
+                    PaymentInfo2Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentInfo2Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BankAccount = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Routing = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<int>(type: "int", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentInfo2", x => x.PaymentInfo2Id);
+                    table.ForeignKey(
+                        name: "FK_PaymentInfo2_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id", 
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -246,9 +276,10 @@ namespace CommerceBankApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DonatedAmount = table.Column<float>(type: "real", nullable: false),
                     DonatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(256)", nullable: false),
-                    OrganizationID = table.Column<int>(type: "int", nullable: false),
-                    PaymentInfoId = table.Column<int>(type: "int", nullable: false)
+                    UserName = table.Column<string>(type: "nvarchar(256)", nullable: true),
+                    OrganizationID = table.Column<int>(type: "int", nullable: true),
+                    PaymentInfoId = table.Column<int>(type: "int", nullable: true),
+                    PaymentInfo2Id = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -258,19 +289,25 @@ namespace CommerceBankApp.Migrations
                         column: x => x.UserName,
                         principalTable: "AspNetUsers",
                         principalColumn: "UserName",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Payment_Organization_OrganizationID",
                         column: x => x.OrganizationID,
                         principalTable: "Organization",
                         principalColumn: "OrganizationID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Payment_PaymentInfo_PaymentInfoId",
                         column: x => x.PaymentInfoId,
                         principalTable: "PaymentInfo",
                         principalColumn: "PaymentInfoId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Payment_PaymentInfo2_PaymentInfo2Id",
+                        column: x => x.PaymentInfo2Id,
+                        principalTable: "PaymentInfo2",
+                        principalColumn: "PaymentInfo2Id",
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
@@ -328,6 +365,11 @@ namespace CommerceBankApp.Migrations
                 column: "OrganizationID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Payment_PaymentInfo2Id",
+                table: "Payment",
+                column: "PaymentInfo2Id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Payment_PaymentInfoId",
                 table: "Payment",
                 column: "PaymentInfoId");
@@ -340,6 +382,11 @@ namespace CommerceBankApp.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_PaymentInfo_ApplicationUserId",
                 table: "PaymentInfo",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentInfo2_ApplicationUserId",
+                table: "PaymentInfo2",
                 column: "ApplicationUserId");
         }
 
@@ -377,6 +424,9 @@ namespace CommerceBankApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "PaymentInfo");
+
+            migrationBuilder.DropTable(
+                name: "PaymentInfo2");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

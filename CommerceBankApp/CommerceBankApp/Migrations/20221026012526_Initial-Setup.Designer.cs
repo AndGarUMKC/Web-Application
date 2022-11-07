@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommerceBankApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221008210813_Initial-Setup")]
+    [Migration("20221026012526_Initial-Setup")]
     partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -116,7 +116,6 @@ namespace CommerceBankApp.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrganizationID"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<float>("DonationGoal")
@@ -155,19 +154,23 @@ namespace CommerceBankApp.Migrations
                     b.Property<DateTime>("DonatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OrganizationID")
+                    b.Property<int?>("OrganizationID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentInfoId")
+                    b.Property<int?>("PaymentInfo2Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentInfoId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("PaymentId");
 
                     b.HasIndex("OrganizationID");
+
+                    b.HasIndex("PaymentInfo2Id");
 
                     b.HasIndex("PaymentInfoId");
 
@@ -184,13 +187,27 @@ namespace CommerceBankApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentInfoId"), 1L, 1);
 
-                    b.Property<string>("ApplicationUserId")
+                    b.Property<string>("Address")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaymentInfoName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("cardExpiration")
                         .HasColumnType("datetime2");
@@ -209,6 +226,52 @@ namespace CommerceBankApp.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("PaymentInfo");
+                });
+
+            modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo2", b =>
+                {
+                    b.Property<int>("PaymentInfo2Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentInfo2Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BankAccount")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentInfo2Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Routing")
+                        .IsRequired()
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("PaymentInfo2Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("PaymentInfo2");
                 });
 
             modelBuilder.Entity("DonationTypeOrganization", b =>
@@ -367,9 +430,7 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Organization")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
                 });
@@ -378,37 +439,44 @@ namespace CommerceBankApp.Migrations
                 {
                     b.HasOne("CommerceBankApp.Models.Organization", "Organization")
                         .WithMany("Payment")
-                        .HasForeignKey("OrganizationID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrganizationID");
+
+                    b.HasOne("CommerceBankApp.Models.PaymentInfo2", "PaymentInfo2")
+                        .WithMany("Payment")
+                        .HasForeignKey("PaymentInfo2Id");
 
                     b.HasOne("CommerceBankApp.Models.PaymentInfo", "PaymentInfo")
                         .WithMany("Payment")
-                        .HasForeignKey("PaymentInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentInfoId");
 
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Payment")
                         .HasForeignKey("UserName")
-                        .HasPrincipalKey("UserName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasPrincipalKey("UserName");
 
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Organization");
 
                     b.Navigation("PaymentInfo");
+
+                    b.Navigation("PaymentInfo2");
                 });
 
             modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo", b =>
                 {
                     b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo2", b =>
+                {
+                    b.HasOne("CommerceBankApp.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
                 });
@@ -492,6 +560,11 @@ namespace CommerceBankApp.Migrations
                 });
 
             modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo", b =>
+                {
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("CommerceBankApp.Models.PaymentInfo2", b =>
                 {
                     b.Navigation("Payment");
                 });

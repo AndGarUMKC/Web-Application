@@ -13,45 +13,45 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CommerceBankApp.Controllers
 {
-    public class PaymentInfoController : Controller
+    public class PaymentInfo2Controller : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public PaymentInfoController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public PaymentInfo2Controller(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
 
-        // GET: PaymentInfo
+        // GET: PaymentInfo2
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.PaymentInfo.Include(p => p.ApplicationUser);
+            var applicationDbContext = _context.PaymentInfo2.Include(p => p.ApplicationUser);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: PaymentInfo/Details/5
+        // GET: PaymentInfo2/Details/5
         [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.PaymentInfo == null)
+            if (id == null || _context.PaymentInfo2 == null)
             {
                 return NotFound();
             }
 
-            var paymentInfo = await _context.PaymentInfo
+            var paymentInfo2 = await _context.PaymentInfo2
                 .Include(p => p.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.PaymentInfoId == id);
-            if (paymentInfo == null)
+                .FirstOrDefaultAsync(m => m.PaymentInfo2Id == id);
+            if (paymentInfo2 == null)
             {
                 return NotFound();
             }
 
-            return View(paymentInfo);
+            return View(paymentInfo2);
         }
 
-        // GET: PaymentInfo/Create
+        // GET: PaymentInfo2/Create
         [Authorize]
         public IActionResult Create()
         {
@@ -60,53 +60,53 @@ namespace CommerceBankApp.Controllers
             return View();
         }
 
-        // POST: PaymentInfo/Create
+        // POST: PaymentInfo2/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PaymentInfoId,PaymentInfoName,CardNumber,CvcNumber,CardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Create([Bind("PaymentInfo2Id,PaymentInfo2Name,BankAccount,Routing,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo2 paymentInfo2)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(paymentInfo);
+                _context.Add(paymentInfo2);
                 await _context.SaveChangesAsync();
                 return Redirect("~/");
                 //return RedirectToAction(nameof(Index));
             }
             ViewBag.userid = _userManager.GetUserId(HttpContext.User);
-            //ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
-            return View(paymentInfo);
+            //ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo2.ApplicationUserId);
+            return View(paymentInfo2);
         }
 
-        // GET: PaymentInfo/Edit/5
+        // GET: PaymentInfo2/Edit/5
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.PaymentInfo == null)
+            if (id == null || _context.PaymentInfo2 == null)
             {
                 return NotFound();
             }
 
-            var paymentInfo = await _context.PaymentInfo.FindAsync(id);
-            if (paymentInfo == null)
+            var paymentInfo2 = await _context.PaymentInfo2.FindAsync(id);
+            if (paymentInfo2 == null)
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
-            return View(paymentInfo);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo2.ApplicationUserId);
+            return View(paymentInfo2);
         }
 
-        // POST: PaymentInfo/Edit/5
+        // POST: PaymentInfo2/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfoId,PaymentInfoName,CardNumber,CvcNumber,CardExpiration,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo paymentInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("PaymentInfo2Id,PaymentInfo2Name,BankAccount,Routing,Address,City,State,ZipCode,ApplicationUserId")] PaymentInfo2 paymentInfo2)
         {
-            if (id != paymentInfo.PaymentInfoId)
+            if (id != paymentInfo2.PaymentInfo2Id)
             {
                 return NotFound();
             }
@@ -115,12 +115,12 @@ namespace CommerceBankApp.Controllers
             {
                 try
                 {
-                    _context.Update(paymentInfo);
+                    _context.Update(paymentInfo2);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PaymentInfoExists(paymentInfo.PaymentInfoId))
+                    if (!PaymentInfo2Exists(paymentInfo2.PaymentInfo2Id))
                     {
                         return NotFound();
                     }
@@ -132,43 +132,43 @@ namespace CommerceBankApp.Controllers
                 return Redirect("~/");
                 //return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo.ApplicationUserId);
-            return View(paymentInfo);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Id", paymentInfo2.ApplicationUserId);
+            return View(paymentInfo2);
         }
 
-        // GET: PaymentInfo/Delete/5
+        // GET: PaymentInfo2/Delete/5
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.PaymentInfo == null)
+            if (id == null || _context.PaymentInfo2 == null)
             {
                 return NotFound();
             }
 
-            var paymentInfo = await _context.PaymentInfo
+            var paymentInfo2 = await _context.PaymentInfo2
                 .Include(p => p.ApplicationUser)
-                .FirstOrDefaultAsync(m => m.PaymentInfoId == id);
-            if (paymentInfo == null)
+                .FirstOrDefaultAsync(m => m.PaymentInfo2Id == id);
+            if (paymentInfo2 == null)
             {
                 return NotFound();
             }
 
-            return View(paymentInfo);
+            return View(paymentInfo2);
         }
 
-        // POST: PaymentInfo/Delete/5
+        // POST: PaymentInfo2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.PaymentInfo == null)
+            if (_context.PaymentInfo2 == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.PaymentInfo'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.PaymentInfo2'  is null.");
             }
-            var paymentInfo = await _context.PaymentInfo.FindAsync(id);
-            if (paymentInfo != null)
+            var paymentInfo2 = await _context.PaymentInfo2.FindAsync(id);
+            if (paymentInfo2 != null)
             {
-                _context.PaymentInfo.Remove(paymentInfo);
+                _context.PaymentInfo2.Remove(paymentInfo2);
             }
             
             await _context.SaveChangesAsync();
@@ -176,9 +176,9 @@ namespace CommerceBankApp.Controllers
             //return RedirectToAction(nameof(Index));
         }
 
-        private bool PaymentInfoExists(int id)
+        private bool PaymentInfo2Exists(int id)
         {
-          return _context.PaymentInfo.Any(e => e.PaymentInfoId == id);
+          return _context.PaymentInfo2.Any(e => e.PaymentInfo2Id == id);
         }
     }
 }

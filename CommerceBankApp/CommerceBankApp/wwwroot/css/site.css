@@ -1,9 +1,102 @@
-html {
-    font-size: 14px;
+/* enable dark mode */
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--font-color);
+    /*other styles*/
+}
+
+h1 {
+    color: var(--secondary-color);
+    /*other styles*/
 }
 
 a {
-    color: #0366d6;
+    color: var(--primary-color);
+    /*other styles*/
+}
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+.theme-switch-wrapper em {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+    .theme-switch input {
+        display: none;
+    }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+    .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 26px;
+    }
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 .btn-primary {
@@ -41,25 +134,20 @@ button.accept-policy {
     line-height: inherit;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+/*  
+    background-color: #eee; 
+    background: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
+*/
 body {
     margin-bottom: 60px;
     font-family: 'Open Sans', sans-serif;
-    background-color: #eee;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 header {
     background-color: #4FA800;
-    
-    font-weight:600;
+    font-weight: 600;
 }
 
 footer {
@@ -103,4 +191,259 @@ div.card-content {
 div.login-form-icon {
     text-align: center;
 }
- 
+
+
+/* fixed size image */
+.a-image--background {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.a-image {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+/* CSS  
+    #aeda86 -- lighter green
+    #4FA800 -- commerce light green
+    #006747 -- commerce dark green
+*/
+.button-87 {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #4FA800;
+    background-image: linear-gradient(45deg, #006747 0%, #4FA800 51%, #006747 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-87:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.button-87:active {
+    transform: scale(0.95);
+}
+
+
+
+.stretch-card > .card {
+    width: 100%;
+    min-width: 100%
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 3rem
+}
+
+.card {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #eee;
+    background-clip: border-box;
+    border: 1px solid #a9a9a9;
+    border-radius: 0
+}
+
+.card .card-block {
+    padding: 1.25rem;
+}
+
+.card-body .list-group li {
+    background-color: inherit;
+}
+
+
+h6 {
+    font-size: 16px !important;
+}
+
+.text-c-green {
+    color: #4FA800;
+}
+
+.m-l-10 {
+    margin-left: 10px;
+}
+
+.proj-progress-card .progress {
+    height: 6px;
+    overflow: visible;
+    margin-bottom: 10px;
+}
+
+.proj-progress-card .progress .progress-bar {
+    position: relative;
+}
+
+.progress .progress-bar {
+    height: 100%;
+    color: inherit;
+}
+
+.proj-progress-card .progress .progress-bar:after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+}
+
+.proj-progress-card .progress .progress-bar.bg-c-green:after {
+    border: 3px solid #4FA800;
+}
+
+.bg-c-green {
+    background: #4FA800;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+
+
+.tabs {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.tabs .tabs-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;   
+}
+
+/*margin-right: 2px;*/
+.tabs .tabs-list li {
+    width: 49%;
+    float: left;
+    margin: 0px;
+    
+    padding: 10px 5px;
+    text-align: center;
+    background-color: #4FA800;
+    border-radius: 3px;       
+}
+
+.tabs .tabs-list li:hover {
+    cursor: pointer;
+}
+
+.tabs .tabs-list li a {
+    text-decoration: none;
+    color: white;
+}
+
+    /* Tab content section */
+.tabs .tab {
+    display: none;
+    width: 98%;
+    min-height: 250px;
+    height: auto;
+    border-radius: 3px;
+    padding: 20px 15px;
+    background-color: #eee;
+    color: darkslategray;
+    clear: both;
+}
+
+.tabs .tab h3 {
+    border-bottom: 3px solid #4FA800;
+    letter-spacing: 1px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.tabs .tab p {
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+/* When active state */
+.active {
+    display: block !important;
+}
+
+.tabs .tabs-list li.active {
+    background-color: #eee !important;
+    color: black !important;
+}
+
+
+.tabs .tabs-list .active a {
+    color: black !important;
+}
+
+/* media query */
+@media screen and (max-width:360px) {
+    .tabs {
+        margin: 0;
+        width: 98%;
+    }
+
+    .tabs .tabs-list li {
+        width: 80px;
+    }
+}
+
+
+/* zoom on card hover */
+.col a .card {
+    transition: all .15s ease-in-out;
+}
+
+.col a .card:hover {
+    transform: scale(1.05); 
+}

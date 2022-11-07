@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PaymentInfo)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentInfo2)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -40,7 +43,10 @@
                 @Html.DisplayFor(modelItem => item.Organization.OrganizationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PaymentInfo.cardNumber)
+                @Html.DisplayFor(modelItem => item.PaymentInfo.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentInfo2.BankAccount)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PaymentId">Edit</a> |

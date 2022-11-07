@@ -19,17 +19,22 @@ namespace CommerceBankApp.Models
 
         // FOREIGN KEYS
         [ForeignKey("UserName")]
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public virtual ApplicationUser? ApplicationUser { get; set; }
 
         [ForeignKey("OrganizationID")]
-        public int OrganizationID { get; set; }
+        public int? OrganizationID { get; set; }
         public virtual Organization? Organization { get; set; }
 
         [ForeignKey("PaymentInfoId")]
         [DisplayName("Credit Card")]
-        public int PaymentInfoId { get; set; }
+        public int? PaymentInfoId { get; set; }
         public virtual PaymentInfo? PaymentInfo { get; set; }
+
+        [ForeignKey("PaymentInfo2Id")]
+        [DisplayName("Bank Account")]
+        public int? PaymentInfo2Id { get; set; }
+        public virtual PaymentInfo2? PaymentInfo2 { get; set; }
 
         public Payment()
         {
