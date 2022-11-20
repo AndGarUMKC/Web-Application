@@ -6,11 +6,6 @@
     <meta name="theme-color" content="#4FA800" />
     <title>@ViewData["Title"] - Commerce Donations</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    @*
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-    *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CommerceBankApp.styles.css" asp-append-version="true" />
     <link rel="icon" href="~/commerceimg.png" type="image/x-icon type" />
@@ -19,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom header-shadow">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light header-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Organization" asp-action="Index">
                     <img src="~/commerceimg.png" alt="Commerce Image" style="width:65px;height:65px;">
@@ -60,7 +55,7 @@
         </main>
     </div>
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container" style="color: black; font-weight: 500">
             &copy; 2022 - Commerce Bank - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

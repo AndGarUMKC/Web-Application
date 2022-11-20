@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        
+
         <form asp-controller="PaymentInfo2" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -59,21 +59,23 @@
                 <label asp-for="ApplicationUserId" class="control-label"></label>
                 <input asp-for="ApplicationUserId" class="form-control" value="@ViewBag.userid" />
             </div>
-            
+
             <br />
             <button class="button-87" style="width: 94%" role="button">
                 Create
             </button>
-            
+
         </form>
-        
+
     </div>
 </div>
-<br />
+
 <button class="button-87" role="button" onclick="history.back()">
     Back
 </button>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

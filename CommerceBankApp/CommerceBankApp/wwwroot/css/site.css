@@ -1,18 +1,33 @@
-/* enable dark mode */
+/*
+    enable dark mode
+    assign global variables
+*/
 :root {
     --primary-color: #302AE6;
     --secondary-color: #536390;
     --font-color: #424242;
     --bg-color: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
+    --bg-colortwo: linear-gradient(0.25turn, #F3E6E8, #ebf8e1, #D5D0E5);
+    --nav-tab-color: #ebf8e1;
     --heading-color: #292922;
+    --border-color: #c3c3c3;
 }
+
+/* 
+    dark mode bg: #161625 
+    #172231
+    #131c28
+*/
 
 [data-theme="dark"] {
     --primary-color: #9A97F3;
     --secondary-color: #818cab;
     --font-color: #e1e1ff;
-    --bg-color: #161625;
+    --bg-color: linear-gradient(0.25turn, #161625, #2c3e50, #131c28);
+    --bg-colortwo: linear-gradient(0.25turn, #161625, #131c28, #2c3e50);
+    --nav-tab-color: #161625;
     --heading-color: #818cab;
+    --border-color: #303030;
 }
 
 body {
@@ -36,10 +51,11 @@ a {
     display: flex;
     align-items: center;
 }
-.theme-switch-wrapper em {
-    margin-left: 10px;
-    font-size: 1rem;
-}
+
+    .theme-switch-wrapper em {
+        margin-left: 10px;
+        font-size: 1rem;
+    }
 
 .theme-switch {
     display: inline-block;
@@ -75,7 +91,7 @@ a {
     }
 
 input:checked + .slider {
-    background-color: #66bb6a;
+    background-color: #bbdbbe;
 }
 
     input:checked + .slider:before {
@@ -89,7 +105,6 @@ input:checked + .slider {
     .slider.round:before {
         border-radius: 50%;
     }
-
 
 
 
@@ -146,12 +161,12 @@ body {
 }
 
 header {
-    background-color: #4FA800;
+    background: linear-gradient(to right, #0bab64, #3bb78f);
     font-weight: 600;
 }
 
 footer {
-    background-color: #4FA800;
+    background: linear-gradient(to right, #0bab64, #3bb78f);
 }
 
 .footer {
@@ -163,7 +178,7 @@ footer {
 }
 
 .header-shadow {
-    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.6);
 }
 
 div.login-logout-tab div.card-header {
@@ -176,7 +191,13 @@ div.login-logout-tab ul.nav-tabs {
 
 div.login-logout-tab li.nav-item {
     width: 50%;
+    background: var(--nav-tab-color);
 }
+    
+    div.login-logout-tab li.nav-item .active {
+        background: var(--bg-colortwo);
+    }
+
 
 div.login-logout-tab a.nav-link {
     font-size: 25px;
@@ -200,6 +221,7 @@ div.login-form-icon {
     background-size: cover;
     height: 100%;
     width: 100%;
+    border-radius: 30px;
 }
 
 .a-image {
@@ -208,10 +230,11 @@ div.login-form-icon {
 }
 
 
-/* CSS  
+/*
     #aeda86 -- lighter green
     #4FA800 -- commerce light green
     #006747 -- commerce dark green
+    background: linear-gradient(to right, #0bab64, #3bb78f);
 */
 .button-87 {
     margin: 10px;
@@ -226,23 +249,23 @@ div.login-form-icon {
     border: 0px;
     font-weight: 700;
     box-shadow: 0px 0px 14px -7px #4FA800;
-    background-image: linear-gradient(45deg, #006747 0%, #4FA800 51%, #006747 100%);
+    background-image: linear-gradient(45deg, #0bab64 0%, #3bb78f 51%, #0bab64 100%);
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
 }
 
-.button-87:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-}
+    .button-87:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 
-.button-87:active {
-    transform: scale(0.95);
-}
+    .button-87:active {
+        transform: scale(0.95);
+    }
 
 
 
@@ -286,16 +309,26 @@ div.login-form-icon {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #eee;
+    background: var(--bg-color);
     background-clip: border-box;
-    border: 1px solid #a9a9a9;
+    border: 1px solid var(--border-color);
     border-radius: 0
 }
 
-.card .card-block {
-    padding: 1.25rem;
+/*org index card*/
+.row-cols-1 .col .card {
+    border-radius: 20px;
 }
 
+/*org index card image*/
+.card .card-img-top {
+    border-radius: 20px 20px 0 0;
+}
+
+    .card .card-block {
+        padding: 1.25rem;
+    }
+/*recent donations inherit card bg*/
 .card-body .list-group li {
     background-color: inherit;
 }
@@ -313,15 +346,19 @@ h6 {
     margin-left: 10px;
 }
 
+.proj-progress-card {
+    border-radius: 5%;
+}
+
 .proj-progress-card .progress {
     height: 6px;
     overflow: visible;
     margin-bottom: 10px;
 }
 
-.proj-progress-card .progress .progress-bar {
-    position: relative;
-}
+    .proj-progress-card .progress .progress-bar {
+        position: relative;
+    }
 
 .progress .progress-bar {
     height: 100%;
@@ -352,64 +389,67 @@ h6 {
 }
 
 
+/*
+    background: linear-gradient(to right, #0bab64, #3bb78f);
+*/
 
+/*payment info tabs on payment page*/
 .tabs {
     width: 100%;
     height: auto;
     margin: 0 auto;
 }
 
-.tabs .tabs-list {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;   
-}
+    .tabs .tabs-list {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
 
-/*margin-right: 2px;*/
-.tabs .tabs-list li {
-    width: 49%;
-    float: left;
-    margin: 0px;
-    
-    padding: 10px 5px;
-    text-align: center;
-    background-color: #4FA800;
-    border-radius: 3px;       
-}
+        /*margin-right: 2px;*/
+        .tabs .tabs-list li {
+            width: 49%;
+            float: left;
+            margin: 0px;
+            padding: 10px 5px;
+            text-align: center;
+            background: linear-gradient(to right, #0bab64, #3bb78f);
+            border-radius: 3px;
+        }
 
-.tabs .tabs-list li:hover {
-    cursor: pointer;
-}
+            .tabs .tabs-list li:hover {
+                cursor: pointer;
+            }
 
-.tabs .tabs-list li a {
-    text-decoration: none;
-    color: white;
-}
+            .tabs .tabs-list li a {
+                text-decoration: none;
+                color: white;
+            }
 
     /* Tab content section */
-.tabs .tab {
-    display: none;
-    width: 98%;
-    min-height: 250px;
-    height: auto;
-    border-radius: 3px;
-    padding: 20px 15px;
-    background-color: #eee;
-    color: darkslategray;
-    clear: both;
-}
+    .tabs .tab {
+        display: none;
+        width: 98%;
+        min-height: 250px;
+        height: auto;
+        border-radius: 3px;
+        padding: 20px 15px;
+        background-color: #eee;
+        color: darkslategray;
+        clear: both;
+    }
 
-.tabs .tab h3 {
-    border-bottom: 3px solid #4FA800;
-    letter-spacing: 1px;
-    font-weight: normal;
-    padding: 5px;
-}
+        .tabs .tab h3 {
+            border-bottom: 3px solid #0bab64;
+            letter-spacing: 1px;
+            font-weight: normal;
+            padding: 5px;
+        }
 
-.tabs .tab p {
-    line-height: 20px;
-    letter-spacing: 1px;
-}
+        .tabs .tab p {
+            line-height: 20px;
+            letter-spacing: 1px;
+        }
 
 /* When active state */
 .active {
@@ -417,7 +457,7 @@ h6 {
 }
 
 .tabs .tabs-list li.active {
-    background-color: #eee !important;
+    background: #eee !important;
     color: black !important;
 }
 
@@ -433,9 +473,9 @@ h6 {
         width: 98%;
     }
 
-    .tabs .tabs-list li {
-        width: 80px;
-    }
+        .tabs .tabs-list li {
+            width: 80px;
+        }
 }
 
 
@@ -444,6 +484,30 @@ h6 {
     transition: all .15s ease-in-out;
 }
 
-.col a .card:hover {
-    transform: scale(1.05); 
+    .col a .card:hover {
+        transform: scale(1.05);
+    }
+
+
+/*linear-gradient(0.25turn, #161625, #2c3e50, #131c28);*/
+
+
+/*inside card text*/
+.row a {
+    color: var(--secondary-color);
+}
+
+/*org details donation amount*/
+.row .col h5 {
+    color: var(--font-color);
+}
+
+/*org details recent donations*/
+.card-body li {
+    color: var(--secondary-color);
+}
+
+hr {
+    color: #333333;
+    height: 10px;
 }

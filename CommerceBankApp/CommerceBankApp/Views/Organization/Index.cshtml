@@ -25,8 +25,8 @@
             name = Html.DisplayTextFor(n => item.ApplicationUser.UserName);
         }
         <div class="col">
-            <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none; color: black;"> <!-- ~/Organization/{asp-action}/{asp-route-id} -->
-                <div class="card h-100 rounded-3" style="background-color:#dddddd;">
+            <a asp-action="Details" asp-route-id="@item.OrganizationID" style="text-decoration:none;"> <!-- ~/Organization/{asp-action}/{asp-route-id} -->
+                <div class="card shadow">
                     <img class="card-img-top" style="height:225px" src="@Html.DisplayTextFor(modelItem => item.ImageUrl)" alt="Card image cap">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.OrganizationName)</h5>
