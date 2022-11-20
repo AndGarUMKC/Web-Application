@@ -8,7 +8,7 @@
     --font-color: #424242;
     --bg-color: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
     --bg-colortwo: linear-gradient(0.25turn, #F3E6E8, #ebf8e1, #D5D0E5);
-    --nav-tab-color: #ebf8e1;
+    --nav-tab-color: #D5D0E5;
     --heading-color: #292922;
     --border-color: #c3c3c3;
 }
@@ -176,10 +176,19 @@ footer {
     white-space: nowrap;
     line-height: 60px;
 }
-
-.header-shadow {
+/*
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.6);
+*/
+.header-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.footer-shadow {
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2), 0 -6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* login / register tabs */
 
 div.login-logout-tab div.card-header {
     padding: 0px 0px 12px 0px;
@@ -195,7 +204,7 @@ div.login-logout-tab li.nav-item {
 }
     
     div.login-logout-tab li.nav-item .active {
-        background: var(--bg-colortwo);
+        background: var(--bg-color);
     }
 
 
@@ -214,7 +223,7 @@ div.login-form-icon {
 }
 
 
-/* fixed size image */
+/* org details fixed size image */
 .a-image--background {
     background-position: 50%;
     background-repeat: no-repeat;
@@ -434,7 +443,7 @@ h6 {
         height: auto;
         border-radius: 3px;
         padding: 20px 15px;
-        background-color: #eee;
+        background: var(--bg-color);
         color: darkslategray;
         clear: both;
     }
@@ -508,6 +517,16 @@ h6 {
 }
 
 hr {
-    color: #333333;
-    height: 10px;
+    border-top: 1px solid #111111;
 }
+
+/*shadow hover over details prog / recent donations*/
+.bordershadow {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+    transition: all 200ms ease-out;
+}
+
+    .bordershadow:hover {
+        box-shadow: 0 0 14px rgba(111, 212, 185, 1);
+    }
+
