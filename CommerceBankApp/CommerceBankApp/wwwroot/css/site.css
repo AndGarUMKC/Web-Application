@@ -7,7 +7,6 @@
     --secondary-color: #536390;
     --font-color: #424242;
     --bg-color: linear-gradient(0.25turn, #D5D0E5, #ebf8e1, #F3E6E8);
-    --bg-colortwo: linear-gradient(0.25turn, #F3E6E8, #ebf8e1, #D5D0E5);
     --nav-tab-color: #D5D0E5;
     --heading-color: #292922;
     --border-color: #c3c3c3;
@@ -24,7 +23,6 @@
     --secondary-color: #818cab;
     --font-color: #e1e1ff;
     --bg-color: linear-gradient(0.25turn, #161625, #2c3e50, #131c28);
-    --bg-colortwo: linear-gradient(0.25turn, #161625, #131c28, #2c3e50);
     --nav-tab-color: #161625;
     --heading-color: #818cab;
     --border-color: #303030;
@@ -252,7 +250,7 @@ div.login-form-icon {
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
+    color: #ddd;
     border-radius: 10px;
     display: block;
     border: 0px;
@@ -422,8 +420,8 @@ h6 {
             margin: 0px;
             padding: 10px 5px;
             text-align: center;
-            background: linear-gradient(to right, #0bab64, #3bb78f);
-            border-radius: 3px;
+            background: var(--nav-tab-color);
+            
         }
 
             .tabs .tabs-list li:hover {
@@ -432,7 +430,7 @@ h6 {
 
             .tabs .tabs-list li a {
                 text-decoration: none;
-                color: white;
+                color: var(--font-color);
             }
 
     /* Tab content section */
@@ -441,14 +439,15 @@ h6 {
         width: 98%;
         min-height: 250px;
         height: auto;
-        border-radius: 3px;
+        border-radius: 0 0 10px 10px;
         padding: 20px 15px;
         background: var(--bg-color);
-        color: darkslategray;
+        color: var(--font-color);
         clear: both;
     }
 
         .tabs .tab h3 {
+            color: var(--secondary-color);
             border-bottom: 3px solid #0bab64;
             letter-spacing: 1px;
             font-weight: normal;
@@ -466,13 +465,13 @@ h6 {
 }
 
 .tabs .tabs-list li.active {
-    background: #eee !important;
+    background: var(--bg-color) !important;
     color: black !important;
 }
 
 
 .tabs .tabs-list .active a {
-    color: black !important;
+    color: var(--primary-color) !important;
 }
 
 /* media query */
