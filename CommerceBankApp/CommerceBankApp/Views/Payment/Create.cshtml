@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Donate to @Html.DisplayTextFor(o => o.Organization.OrganizationName)</h1>
+<h1>Donate to @Html.(o => ViewData["OrganizationID"])</h1>
 <h4>Payment</h4>
 <hr />
 <div class="row">

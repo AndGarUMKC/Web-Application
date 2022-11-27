@@ -1,4 +1,8 @@
-﻿@model CommerceBankApp.Models.Organization
+﻿@using Microsoft.AspNetCore.Identity
+@using CommerceBankApp.Areas.Identity.Data
+
+@model CommerceBankApp.Models.Organization
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = @Html.DisplayFor(model => model.OrganizationName);
@@ -25,9 +29,6 @@
     <div class="row justify-content-center">
         <div class="col-7">
             <img class="a-image a-image--background shadow mb-4" style="width:720px; height:405px;" src="@Html.DisplayTextFor(modelItem => modelItem.ImageUrl)" alt="Error Loading Image">
-            <a asp-action="Edit" asp-route-id="@Model?.OrganizationID">Edit</a> |
-            <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a> |
-            <a asp-action="Index">Back to List</a>
             <p>
                 @name is organizing this fundraiser.
             </p>
@@ -94,6 +95,14 @@
                     </ul>
                 </div>
             </div>
+            @if (UserManager.GetUserName(User) == name)
+            {
+                <center>
+                    <br />
+                    <a asp-action="Edit" asp-route-id="@Model?.OrganizationID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@Model?.OrganizationID">Delete</a>
+                </center>
+            }
         </div>
     </div>
 </div>
