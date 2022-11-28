@@ -69,7 +69,8 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
-            
+            TempData["OrganizationName"] = organization.OrganizationName;
+            TempData["OrganizationImage"] = organization.ImageUrl;
             return View(organization);
         }
 

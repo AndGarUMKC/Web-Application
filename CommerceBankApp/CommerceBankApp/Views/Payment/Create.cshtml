@@ -3,11 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Donate to @Html.(o => ViewData["OrganizationID"])</h1>
-<h4>Payment</h4>
+<br />
+<h1>Donate to @TempData["OrganizationName"]</h1>
 <hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -63,11 +62,7 @@
     </div>
 
     <div class="col-8">
-        <h4>
-            @Html.DisplayFor(o => o.OrganizationID)
-        </h4>
-        <hr />
-
+        <img class="a-image a-image--background shadow" style="height:505px;" src="@TempData["OrganizationImage"]" />
     </div>
 </div>
 

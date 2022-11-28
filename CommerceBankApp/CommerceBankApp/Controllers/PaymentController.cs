@@ -63,6 +63,8 @@ namespace CommerceBankApp.Controllers
         {
             ViewBag.UserName = _userManager.GetUserName(HttpContext.User);
             ViewBag.userid = _userManager.GetUserId(HttpContext.User);
+            TempData.Keep("OrganizationName");
+            TempData.Keep("OrganizationImage");
             ViewData["OrganizationID"] = new SelectList(_context.Organization, "OrganizationID", "ImageUrl");
             ViewData["PaymentInfoId"] = new SelectList(_context.PaymentInfo
                                                         .Where(p => p.ApplicationUserId
