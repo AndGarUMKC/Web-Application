@@ -3,11 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Donate to @Html.DisplayFor(o => o.OrganizationID)</h1>
-<h4>Payment</h4>
+<br />
+<h1>Donate to @TempData["OrganizationName"]</h1>
 <hr />
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -22,7 +21,7 @@
             </div>
             <div class="form-group" style="display:none">
                 <label asp-for="OrganizationID" class="control-label"></label>
-                <input asp-for="OrganizationID" class ="form-control" id="org" asp-items="ViewBag.OrganizationID" />
+                <input asp-for="OrganizationID" class="form-control" id="org" asp-items="ViewBag.OrganizationID" />
             </div>
 
             <br />
@@ -30,8 +29,8 @@
 
             <div class="tabs">
                 <ul class="tabs-list">
-                    <li class="active"><a href="#tab1">Credit Card</a></li>
-                    <li><a href="#tab2">Bank Account</a></li>
+                    <li class="active" style="border-radius: 10px 0 0 0;"><a href="#tab1">Credit Card</a></li>
+                    <li style="border-radius: 0 10px 0 0;"><a href="#tab2">Bank Account</a></li>
                 </ul>
 
                 <div id="tab1" class="tab active">
@@ -55,7 +54,7 @@
 
             <br />
 
-            <button class="button-87" role="button" onclick="GetReferrer()">
+            <button class="button-87" role="button" style="width: 92%" onclick="GetReferrer()">
                 Donate
             </button>
 
@@ -63,18 +62,16 @@
     </div>
 
     <div class="col-8">
-        <h4>
-            @Html.DisplayFor(o => o.OrganizationID)
-        </h4>
-        <hr />
-
+        <img class="a-image a-image--background shadow" style="height:505px;" src="@TempData["OrganizationImage"]" />
     </div>
 </div>
-<br />
+
 <button class="button-87" role="button" onclick="history.back()">
     Back
 </button>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -46,6 +46,13 @@ namespace CommerceBankApp.Controllers
             return View("Index", await applicationDbContext.Where(o => o.OrganizationName.Contains(SearchPhrase)).ToListAsync());
         }
 
+        // POST: Organization/UserResults
+        public async Task<IActionResult> UserResults()
+        {
+            var applicationDbContext = _context.Organization.Include(o => o.ApplicationUser).Include(p => p.Payment);
+            return View("Index", await applicationDbContext.Where(o => o.ApplicationUserId.Contains(_userManager.GetUserId(HttpContext.User))).ToListAsync());
+        }
+
         // GET: Organization/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -62,7 +69,8 @@ namespace CommerceBankApp.Controllers
             {
                 return NotFound();
             }
-            
+            TempData["OrganizationName"] = organization.OrganizationName;
+            TempData["OrganizationImage"] = organization.ImageUrl;
             return View(organization);
         }
 
