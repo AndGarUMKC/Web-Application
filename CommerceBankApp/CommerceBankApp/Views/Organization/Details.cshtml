@@ -72,26 +72,31 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                    @{
-                        if (Model?.Payment != null)
-                        {
-                            var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
-                            foreach (var items in reversesort)
+                        @{
+                            if (Model?.Payment != null)
                             {
-                                var DonationName = "Anonymous";
-                                if (items.UserName != null) {
-                                    DonationName = Html.DisplayTextFor(item => items.UserName);
+                                var count = 0;
+                                var reversesort = Model.Payment.OrderByDescending(i => i.DonatedDate);
+                                foreach (var items in reversesort)
+                                {
+                                    if (count >= 5) {
+                                        break;
+                                    }
+                                    count += 1;
+                                    var DonationName = "Anonymous";
+                                    if (items.UserName != null) {
+                                        DonationName = Html.DisplayTextFor(item => items.UserName);
+                                    }
+                                    <li class="list-group-item">
+                                        <center>
+                                            @Html.DisplayFor(item => items.DonatedAmount) |
+                                            @DonationName |
+                                            @Html.DisplayFor(item => items.DonatedDate)
+                                        </center>
+                                    </li>
                                 }
-                                <li class="list-group-item">
-                                    <center>
-                                        @Html.DisplayFor(item => items.DonatedAmount) |
-                                        @DonationName |
-                                        @Html.DisplayFor(item => items.DonatedDate)
-                                    </center>
-                                </li>
                             }
                         }
-                    }
                     </ul>
                 </div>
             </div>

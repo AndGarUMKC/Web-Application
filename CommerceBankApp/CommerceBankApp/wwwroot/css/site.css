@@ -193,6 +193,7 @@ footer {
 
 div.login-logout-tab div.card-header {
     padding: 0px 0px 12px 0px;
+    border-radius: 15px 15px 0 0;
 }
 
 div.login-logout-tab ul.nav-tabs {
@@ -357,7 +358,7 @@ h6 {
 }
 
 .proj-progress-card {
-    border-radius: 5%;
+    border-radius: 20px;
 }
 
 .proj-progress-card .progress {
@@ -525,10 +526,9 @@ hr {
 /*shadow hover over details prog / recent donations*/
 .bordershadow {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
-    transition: all 200ms ease-out;
+    transition: all 350ms ease-out;
 }
 
     .bordershadow:hover {
         box-shadow: 0 0 14px rgba(111, 212, 185, 1);
     }
-
