@@ -8,289 +8,325 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CommerceBankApp
 build_property.RootNamespace = CommerceBankApp
-build_property.ProjectDir = D:\Documents\UMKC\Fall 2022\CS 451R - Software Engineering Capstone\Project\9-28-22\CommerceBankApp\CommerceBankApp\CommerceBankApp\
+build_property.ProjectDir = G:\Webstuff\CommerceWebthings\CommerceBankApp\CommerceBankApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Documents\UMKC\Fall 2022\CS 451R - Software Engineering Capstone\Project\9-28-22\CommerceBankApp\CommerceBankApp\CommerceBankApp
+build_property.MSBuildProjectDirectory = G:\Webstuff\CommerceWebthings\CommerceBankApp\CommerceBankApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Lockout.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Login.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Logout.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Register.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Error.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_AuthLayout.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_AuthLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX0F1dGhMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ViewImports.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ViewStart.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/DonationType/Create.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/DonationType/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYXRpb25UeXBlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/DonationType/Delete.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/DonationType/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYXRpb25UeXBlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/DonationType/Details.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/DonationType/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYXRpb25UeXBlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/DonationType/Edit.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/DonationType/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYXRpb25UeXBlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/DonationType/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/DonationType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYXRpb25UeXBlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Home/Donations.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Home/Donations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEb25hdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Home/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Home/Privacy.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Organization/Create.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Home/Saved.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTYXZlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Organization/Delete.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Organization/Details.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Organization/Edit.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Organization/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Create.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Organization/ShowSearchForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uXFNob3dTZWFyY2hGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/CreateNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXENyZWF0ZU5ldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo2/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm8yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Delete.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/CreateNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cQ3JlYXRlTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Details.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Edit.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/PaymentInfo/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudEluZm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Payment/Create.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Payment/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Payment/Delete.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Payment/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Payment/Details.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Payment/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Payment/Edit.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Payment/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Payment/Index.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Payment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Shared/Error.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Shared/_LoginPartial.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/_ViewImports.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/_ViewStart.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Documents/UMKC/Fall 2022/CS 451R - Software Engineering Capstone/Project/9-28-22/CommerceBankApp/CommerceBankApp/CommerceBankApp/Views/Shared/_Layout.cshtml]
+[G:/Webstuff/CommerceWebthings/CommerceBankApp/CommerceBankApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9v7xql3rug

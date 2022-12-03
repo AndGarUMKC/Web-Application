@@ -10291,19 +10291,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anf39\\.nuget\\packages\\": {}
+    "C:\\Users\\Forrest\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-28-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
+      "projectUniqueName": "G:\\Webstuff\\CommerceWebthings\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
       "projectName": "CommerceBankApp",
-      "projectPath": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-28-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
-      "packagesPath": "C:\\Users\\anf39\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\UMKC\\Fall 2022\\CS 451R - Software Engineering Capstone\\Project\\9-28-22\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp\\obj\\",
+      "projectPath": "G:\\Webstuff\\CommerceWebthings\\CommerceBankApp\\CommerceBankApp\\CommerceBankApp.csproj",
+      "packagesPath": "C:\\Users\\Forrest\\.nuget\\packages\\",
+      "outputPath": "G:\\Webstuff\\CommerceWebthings\\CommerceBankApp\\CommerceBankApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\anf39\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Forrest\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10373,7 +10373,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

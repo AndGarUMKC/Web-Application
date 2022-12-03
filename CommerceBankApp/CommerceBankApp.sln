@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1622
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceBankApp", "CommerceBankApp\CommerceBankApp.csproj", "{A1ACB745-FFC2-4CBA-92D6-C901CB761B45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommerceBankApp", "CommerceBankApp\CommerceBankApp.csproj", "{A1ACB745-FFC2-4CBA-92D6-C901CB761B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppTests", "BankAppTests\BankAppTests.csproj", "{2CB0C64D-7DA9-4472-9634-1531F86E2E4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A1ACB745-FFC2-4CBA-92D6-C901CB761B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1ACB745-FFC2-4CBA-92D6-C901CB761B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1ACB745-FFC2-4CBA-92D6-C901CB761B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB0C64D-7DA9-4472-9634-1531F86E2E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB0C64D-7DA9-4472-9634-1531F86E2E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB0C64D-7DA9-4472-9634-1531F86E2E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB0C64D-7DA9-4472-9634-1531F86E2E4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
