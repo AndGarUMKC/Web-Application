@@ -1,2 +1,2 @@
 # CommerceBankApp
-Web Application with CRUD functionality and Database Conncetion
+Web Application with CRUD functionality and Database Connection
